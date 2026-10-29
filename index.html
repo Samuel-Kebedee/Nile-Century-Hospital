@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Nile Century Hospital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito+Sans:wght@400;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&family=Noto+Serif+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --g:#3f8f2f;
+        --z:#b6f09c;        
+        --n:#2a2c7c;
+        --r:#e01f26;
+        --bg:#f6faf7;
+        --c:#fff;
+        --t:#1c2233;
+        --m:#5b6478;
+        --l:#dfe8e2;
+        box-sizing:border-box;
+        padding-top:env(safe-area-inset-top,0px);
+        padding-bottom:env(safe-area-inset-bottom,0px)
+      }
+      html{
+        scroll-behavior:smooth;
+        scroll-padding-top:70px
+      }
+      *{
+        box-sizing:border-box
+      }
+      body{
+        margin:0;
+        background:var(--bg);
+        color:var(--t);
+        font:16px/1.6 'Nunito Sans',system-ui,sans-serif
+      }
+      h1,h2,h3{
+        font-family:Fraunces,Georgia,serif;
+        line-height:1.15;
+        margin:0 0 .5em
+      }
+      h2{
+        font-size:clamp(1.6rem,4vw,2.2rem);
+        color:var(--n)
+      }
+      a{
+        color:inherit;
+        text-decoration:none
+      }
+      section{
+        padding:56px 20px
+      }
+      .w{
+        max-width:1100px;
+        margin:auto
+      }
+      .btn{
+        display:inline-block;
+        padding:12px 22px;
+        border-radius:8px;
+        font-weight:700;
+        border:2px solid var(--g);
+        background:var(--g);
+        color:#fff;
+        cursor:pointer;
+        font:inherit;
+        font-weight:700;
+      }
+      .btn.o{
+        background:transparent;
+        color:var(--g)
+      }
+      .btn.r{
+        background:var(--r);
+        border-color:var(--r)
+      }
+      header{
+        position:sticky;
+        top:0;
+        z-index:20;
+        background:var(--c);
+        border-bottom:1px solid var(--l);
+        padding:8px 20px
+      }
+      header .w{
+        display:flex;
+        align-items:center;
+        gap:16px;
+        justify-content:space-between
+      }
+      header img{
+        object-fit:contain;
+        height:46px;
+        background:#fff;
+        border-radius:6px
+      }
+      nav{
+        display:flex;
+        gap:16px;
+        font-weight:600;
+        font-size:.92rem;
+        flex-wrap:wrap
+      }
+      nav a:hover{
+        color:var(--g)
+      }
+      .hr{
+        display:flex;
+        gap:8px;
+        align-items:center
+      }
+      .hr .btn{
+        padding:8px 14px;
+        font-size:.9rem
+      }
+      select.lg{
+        padding:6px;
+        border-radius:6px;
+        border:1px solid var(--l);
+        background:var(--c);
+        color:var(--t)
+      }
+      @media(max-width:860px){
+        nav{
+          display:none
+        }
+      }
+      .hero{
+        background:linear-gradient(135deg,#147a63,var(--n));
+        color:#fff;
+        padding:64px 20px
+      }
+      .hero .w{
+        display:grid;
+        grid-template-columns:1.3fr 1fr;
+        gap:32px;
+        align-items:center
+      }
+      .hero h1{
+        font-size:clamp(2.3rem,2.6vw,1.85rem);
+        line-height:1.35;
+        font-weight:600;
+        text-shadow:0 2px 14px rgba(0,0,0,.28)
+      }
+      /* ---- Hospital name inside the h1 (Nile / Century / Hospital) ---- */
+      .hero h1 span{
+        display:inline-block;
+        font-size:clamp(2.6rem,6.4vw,4.4rem);
+        line-height:1;
+        font-weight:700;
+        letter-spacing:.5px;
+        margin-right:.16em
+      }
+      .hero h1 span:nth-child(1){ /* "Nile" — brand green, like the logo */
+        color:var(--z);
+        -webkit-text-stroke:2px #000;
+        paint-order:stroke fill;
+        text-shadow:0 0 16px rgba(0,0,0,.25),0 0 4px rgba(0,0,0,.25),0 2px 10px rgba(0,0,0,.25)
+      }
+      .hero h1 span:nth-child(2){ /* "Century" — brand navy, like the logo */
+        color:var(--n);
+        text-shadow:0 0 10px rgba(255,255,255,.85),0 2px 10px rgba(0,0,0,.25)
+      }
+      .hero h1 span:nth-child(3){ /* "HOSPITAL" — brand red, like the logo */
+        display:flex;
+        align-items:center;
+        gap:14px;
+        margin:10px 0 18px;
+        font:800 clamp(.85rem,1.7vw,1.15rem)/1 'Nunito Sans',system-ui,sans-serif;
+        letter-spacing:.55em;
+        text-transform:uppercase;
+        color:var(--r);
+        text-shadow:0 0 8px rgba(0,0,0,.25)
+      }
+      .hero h1 span:nth-child(3):after{
+        content:"";
+        width:min(190px,32%);
+        height:3px;
+        border-radius:3px;
+        background:linear-gradient(90deg,var(--r),transparent)
+      }
+      .hero p{
+        max-width:52ch;
+        opacity:.92
+      }
+      .hero .btn{
+        border-radius:10px;
+        background:#fff;
+        border-color:#fff;
+        color:var(--g)
+      }
+      .hero .btn.o{
+        border-radius:10px;
+        background:var(--n);
+        border-color:var(--n);
+        color:#fff
+      }
+      .hp{
+        background:rgba(255,255,255,.12);
+        border-radius:16px;
+        padding:20px;
+        display:grid;
+        gap:10px
+      }
+      .hp b{
+        font-size:1.5rem;
+        display:block
+      }
+      @media(max-width:760px){
+        .hero .w{
+          grid-template-columns:1fr
+        }
+      }
+      .qa{
+        position:relative;
+        z-index:5;
+        margin-top:-38px;
+        padding:0 20px
+      }
+      .qa .w{
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+        background:var(--c);
+        border-radius:12px;
+        box-shadow:0 6px 24px rgba(0,0,0,.12);
+        overflow:hidden
+      }
+      .qa a{
+        padding:16px 8px;
+        text-align:center;
+        font-weight:700;
+        font-size:.9rem;
+        border-right:1px solid var(--l)
+      }
+      .qa a:hover{
+        background:var(--l)
+      }
+      @media(max-width:640px){
+        .qa .w{
+          grid-template-columns:repeat(2,1fr)
+        }
+      }
+      .gr{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+        gap:16px
+      }
+      .cd{
+        background:var(--c);
+        border:1px solid var(--l);
+        border-radius:12px;
+        padding:20px
+      }
+      .cd h3{
+        font-size:1.1rem;
+        color:var(--n)
+      }
+      .cd p{
+        margin:0;
+        color:var(--m);
+        font-size:.93rem
+      }
+      .ic{
+        font-size:1.8rem
+      }
+      .doc{
+        text-align:center;
+        padding:0;
+        overflow:hidden
+      }
+      .doc .ph{
+        height:210px;
+        background:#147a63;
+        display:grid;
+        place-items:center;
+        overflow:hidden
+      }
+      .doc img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        object-position:top
+      }
+      .doc .av{
+        font:700 3rem Fraunces,serif;
+        color:#fff
+      }
+      .doc .in{
+        padding:16px
+      }
+      .pk{
+        border-top:5px solid var(--g)
+      }
+      .pr{
+        font:700 1.5rem Fraunces,serif;
+        color:var(--n)
+      }
+      .st{
+        background:var(--n);
+        color:#fff
+      }
+      .st .w{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+        text-align:center;
+        gap:16px
+      }
+      .st b{
+        font:700 2.4rem Fraunces,serif;
+        display:block
+      }
+      .al{
+        font-size: 15px;
+        background:#fff4f4;
+        border:1px solid var(--r);
+        color:#7a1015;
+        padding:12px 16px;
+        border-radius:8px;
+        margin-bottom:16px
+      }
+      form{
+        background:var(--c);
+        border:1px solid var(--l);
+        border-radius:14px;
+        padding:24px;
+        max-width:640px;
+        margin:auto
+      }
+      .stp{
+        display:flex;
+        gap:8px;
+        margin-bottom:16px
+      }
+      .stp span{
+        flex:1;
+        height:6px;
+        border-radius:3px;
+        background:var(--l)
+      }
+      .stp .on{
+        background:var(--g)
+      }
+      label{
+        display:block;
+        font-weight:600;
+        margin:12px 0 4px;
+        font-size:.92rem
+      }
+      input,select,textarea{
+        width:100%;
+        padding:11px;
+        border:1px solid var(--l);
+        border-radius:8px;
+        background:var(--bg);
+        color:var(--t);
+        font:inherit
+      }
+      .ck{
+        display:flex;
+        gap:8px;
+        align-items:center;
+        font-weight:600
+      }
+      .ck input{
+        width:auto
+      }
+      .fs{
+        display:none
+      }
+      .fs.on{
+        display:block
+      }
+      .nv{
+        display:flex;
+        justify-content:space-between;
+        margin-top:20px
+      }
+      #ok{
+        display:none;
+        text-align:center;
+        padding:24px
+      }
+      .ct{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:24px
+      }
+      @media(max-width:700px){
+        .ct{
+          grid-template-columns:1fr
+        }
+      }
+      .addrIc{
+        width:42px;
+        height:42px;
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        flex-shrink:0
+      }
+      .addrIc svg{
+        width:20px;
+        height:20px;
+        fill:none;
+        stroke:currentColor;
+        stroke-width:2;
+        stroke-linecap:round;
+        stroke-linejoin:round
+      }
+      .mp{
+        background:linear-gradient(135deg,#cfe8d6,#b9c6ee);
+        border-radius:12px;
+        min-height:200px;
+        display:grid;
+        place-items:center;
+        text-align:center;
+        padding:16px
+      }
+      .mapBtn{
+        position:relative;
+        display:block;
+        min-height:260px;
+        border-radius:16px;
+        overflow:hidden;
+        box-shadow:0 10px 30px rgba(0,0,0,.12);
+        transition:transform .3s,box-shadow .3s
+      }
+      .mapArt{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%
+      }
+      .mapBtn .pin{
+        position:absolute;
+        top:38%;
+        left:50%;
+        transform:translate(-50%,-60%);
+        width:52px;
+        height:52px;
+        filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))
+      }
+      .mapBtn .mapLabel{
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:0;
+        display:flex;
+        flex-direction:column;
+        gap:2px;
+        padding:14px 18px 16px;
+        background:linear-gradient(0deg,rgba(255,255,255,.97),rgba(255,255,255,.9) 70%,rgba(255,255,255,0));
+        color:var(--t)
+      }
+      .mapBtn .mapLabel b{
+        font-size:1rem
+      }
+      .mapBtn .mapCta{
+        margin-top:6px;
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        color:var(--g);
+        font-weight:700;
+        font-size:.9rem
+      }
+      @media(hover:hover){
+        .mapBtn:hover{
+          transform:translateY(-4px);
+          box-shadow:0 16px 36px rgba(0,0,0,.2)
+        }
+        .mapBtn:hover .pin{
+          transform:translate(-50%,-70%)
+        }
+      }
+      footer{
+        background:#161a3d;
+        color:#dfe3ff;
+        padding:40px 20px 5px
+      }
+      footer .w{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+        gap:24px
+      }
+      footer a{
+        display:block;
+        opacity:.85
+      }
+      footer h3{
+        font-size:1rem;
+        color:#fff
+      }
+      .soc{
+        display:flex;
+        justify-content:center;
+        gap:16px;
+        margin:28px 0 8px
+      }
+      .soc a{
+        display:grid;
+        place-items:center;
+        width:46px;
+        height:46px;
+        border-radius:50%;
+        border:2px solid var(--g);
+        color:var(--l);
+        background:var(--g);
+        transition:background .3s,color .3s,box-shadow .3s,transform .3s
+      }
+      .soc a svg{
+        width:20px;
+        height:20px;
+        fill:currentColor
+      }
+      .soc a:hover{
+        background:var(--n);
+        color:#fff;
+        box-shadow:0 0 0 6px rgba(63,143,47,.25),0 6px 18px rgba(63,143,47,.4);
+        transform:translateY(-9px)
+      }
+      footer input{
+        margin:6px 0
+      }
+      .fl{
+        position:fixed;
+        right:14px;
+        bottom:calc(14px + env(safe-area-inset-bottom,0px));
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        z-index:30
+      }
+      .fl a{
+        padding:11px 16px;
+        border-radius:30px;
+        color:#fff;
+        font-weight:700;
+        box-shadow:0 4px 14px rgba(0,0,0,.3);
+        text-align:center
+      }
+      .hero{
+        position:relative;
+        overflow:hidden;
+        background-color:#0f3f33;
+        min-height:520px;
+        display:flex;
+        align-items:center
+      }
+      .hero .hbgwrap{
+        position:absolute;
+        inset:0;
+        z-index:0
+      }
+      .hero .hbg{
+        position:absolute;
+        inset:0;
+        background-size:cover;
+        background-position:center top;
+        background-repeat:no-repeat;
+        opacity:0;
+        transition:opacity 1.6s ease
+      }
+      .hero .hbg.on{
+        opacity:1
+      }
+      .hero>.w{
+        width:100%
+      }
+      .hero>.w{
+        position:relative;
+        z-index:2
+      }
+      #doctors .gr{
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+        gap:16px
+      }
+      /* ===== Photo album ===== */
+      .alb{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,19vw,230px);gap:12px;margin-top:18px}
+      .gal{position:relative;display:block;padding:0;border:0;cursor:zoom-in;overflow:hidden;border-radius:14px;background:var(--l) center/cover no-repeat;box-shadow:0 1px 2px rgba(0,0,0,.08);transition:box-shadow .25s,transform .25s}
+      .gal:nth-child(1){grid-column:span 2;grid-row:span 2}
+      .gal:nth-child(6),.gal:nth-child(7){grid-column:span 2}
+      .gal:hover{box-shadow:0 10px 26px rgba(0,0,0,.22);transform:translateY(-2px)}
+      .gal:focus-visible{outline:3px solid var(--g);outline-offset:3px}
+      .gal:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,24,.55),transparent 55%);opacity:0;transition:opacity .25s}
+      .gal:hover:after,.gal:focus-visible:after{opacity:1}
+      .gal i{position:absolute;right:12px;bottom:12px;z-index:1;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;opacity:0;transform:scale(.8);transition:.25s}
+      .gal:hover i,.gal:focus-visible i{opacity:1;transform:none}
+      .gal i svg{width:18px;height:18px;stroke:#2a2c7c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+      .alb-n{color:var(--m);font-size:.95rem;margin-top:6px}
+      @media(max-width:700px){.alb{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}.gal:nth-child(1){grid-column:span 2;grid-row:span 2}.gal i{opacity:1;transform:none;width:32px;height:32px}.gal:nth-child(6),.gal:nth-child(7){grid-column:span 1}}
+
+      .gal.vid{background:#0e1520}
+      .gal.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+      .gal.vid i{opacity:1;transform:none;width:54px;height:54px;right:auto;bottom:auto;left:50%;top:50%;margin:-27px 0 0 -27px;background:rgba(255,255,255,.92)}
+      .gal.vid i svg{width:24px;height:24px;fill:#2a2c7c;margin-left:3px}
+      .gal.vid:after{opacity:.6}
+      .lb-stage video{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#000;display:none}
+      .lb-stage.isv video{display:block}.lb-stage.isv img{display:none}
+      .lb-vm{position:absolute;color:#fff;font-size:.95rem;display:none;text-align:center;padding:0 20px}
+      .lb-vc{display:none;align-items:center;gap:12px;max-width:640px;width:calc(100% - 28px);margin:10px auto 0;padding:8px 12px;border-radius:30px;background:rgba(255,255,255,.12);color:#fff;font-size:.85rem}
+      .lb-vc.show{display:flex}
+      .lb-vc button{width:38px;height:38px;flex:none}
+      .lb-vc input[type=range]{flex:1;min-width:0;accent-color:#b6f09c;cursor:pointer}
+      .lb-vc span{min-width:84px;text-align:right;font-variant-numeric:tabular-nums}
+      .lb-th button.tv{display:grid;place-items:center;background:#1d2a3a}
+      .lb-th button.tv svg{width:18px;height:18px;fill:#fff;stroke:none}
+      @media(max-width:700px){.lb-vc{margin-top:70px}.lb-vc span{min-width:0}}
+      /* Lightbox */
+      .lb{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;background:rgba(8,12,18,.94);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+      .lb.open{opacity:1;visibility:visible}
+      .lb-top{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;color:#fff;font-size:.95rem}
+      .lb-stage{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;padding:0 64px}
+      .lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5);transition:opacity .2s,transform .25s}
+      .lb-stage img.sw{opacity:0;transform:scale(.97)}
+      .lb button{font:inherit;cursor:pointer;color:#fff;background:rgba(255,255,255,.12);border:0;border-radius:50%;width:44px;height:44px;display:grid;place-items:center;transition:background .2s}
+      .lb button:hover{background:rgba(255,255,255,.28)}
+      .lb button:focus-visible{outline:3px solid var(--z);outline-offset:2px}
+      .lb button svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+      .lb-prev,.lb-next{position:absolute;top:50%;margin-top:-22px}
+      .lb-prev{left:10px}.lb-next{right:10px}
+      .lb-th{display:flex;justify-content:center;gap:8px;padding:14px;overflow-x:auto}
+      .lb-th button{width:64px;height:46px;border-radius:8px;background-size:cover;background-position:center;opacity:.5;border:2px solid transparent;flex:none}
+      .lb-th button.on{opacity:1;border-color:var(--z)}
+      @media(max-width:700px){.lb-stage{padding:0 8px}.lb-prev,.lb-next{top:auto;bottom:-58px;margin:0}.lb-prev{left:12px}.lb-next{right:12px}.lb-th button{width:52px;height:38px}}
+      @media(prefers-reduced-motion:reduce){.gal,.gal i,.gal:after,.lb,.lb-stage img{transition:none}}
+      details{
+        background:var(--c);
+        border:1px solid var(--l);
+        border-radius:10px;
+        padding:12px 16px;
+        margin-bottom:8px
+      }
+      summary{
+        font-weight:700;
+        cursor:pointer
+      }
+      details p{
+        margin:8px 0 0;
+        color:var(--m)
+      }
+      .tr{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px
+      }
+      .tr span{
+        background:var(--l);
+        padding:8px 14px;
+        border-radius:20px;
+        font-weight:600;
+        font-size:.9rem
+      }
+      [data-p]{
+        animation:pg .45s ease
+      }
+      @keyframes pg{
+        from{
+          opacity:0;
+          transform:translateY(10px)
+        }
+      }
+      .mb{
+        display:none;
+        background:none;
+        border:1px solid var(--l);
+        border-radius:8px;
+        font-size:1.3rem;
+        padding:4px 12px;
+        color:var(--t);
+        cursor:pointer
+      }
+      nav a{
+        padding:6px 2px;
+        border-bottom:2px solid transparent;
+        transition:.25s
+      }
+      nav a.on{
+        color:var(--g);
+        border-color:var(--g)
+      }
+      @media(max-width:860px){
+        .mb{
+          display:block
+        }
+        nav{
+          display:none;
+          position:absolute;
+          top:100%;
+          left:0;
+          right:0;
+          background:var(--c);
+          flex-direction:column;
+          padding:12px 20px;
+          border-bottom:1px solid var(--l);
+          gap:4px
+        }
+        nav.open{
+          display:flex
+        }
+        nav a{
+          padding:12px 0;
+          font-size:1.05rem
+        }
+      }
+      @media(max-width:560px){
+        .hb{
+          display:none
+        }
+      }
+      .btn,.fl a,.qa a,.cd,footer a{
+        transition:transform .25s,box-shadow .25s,background .25s,color .25s,filter .25s
+      }
+      .btn{
+        position:relative;
+        overflow:hidden;
+        cursor:pointer
+      }
+      .btn::after{
+        content:"";
+        position:absolute;
+        top:0;
+        left:-80%;
+        width:45%;
+        height:100%;
+        background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+        transform:skewX(-20deg);
+        transition:left .6s
+      }
+      .btn:focus-visible,.fl a:focus-visible,nav a:focus-visible,.qa a:focus-visible{
+        outline:3px solid var(--r);
+        outline-offset:3px
+      }
+      .btn:active,.fl a:active{
+        transform:scale(.96)
+      }
+      @media(hover:hover){
+        .btn:hover{
+          transform:translateY(-3px);
+          box-shadow:0 8px 20px rgba(42,44,124,.3);
+          filter:brightness(1.08)
+        }
+        .btn:hover::after{
+          left:130%
+        }
+        .btn.o:hover{
+          background:var(--g);
+          color:#fff
+        }
+        .hero .btn:hover{
+          background:var(--g);
+          color:#fff;
+          border-color:var(--g)
+        }
+        .hero .btn.o:hover{
+          background:var(--g);
+          color:#fff;
+          border-color:var(--g)
+        }
+        .btn.r:hover{
+          background:var(--n);
+          border-color:#fff;
+          box-shadow:0 8px 20px rgba(224,31,38,.45)
+        }
+        .fl a:hover{
+          transform:translateY(-4px) scale(1.06);
+          filter:brightness(1.1)
+        }
+        .qa a:hover{
+          background:var(--g);
+          color:#fff;
+          transform:translateY(-2px)
+        }
+        a.cd:hover,.cd:hover{
+          transform:translateY(-4px);
+          box-shadow:0 10px 24px rgba(0,0,0,.12);
+          border-color:var(--g)
+        }
+        footer a:hover{
+          opacity:1;
+          transform:translateX(4px);
+          color:#fff
+        }
+        nav a:hover{
+          border-color:var(--g)
+        }
+      }
+
+      /* ===== ABOUT ===== */
+      .ab-story{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;margin-bottom:48px}
+      .ab-story h2{margin-bottom:.4em}
+      .ab-story p{color:var(--m);max-width:60ch;margin:0 0 1em}
+      .ab-quote{position:relative;background:linear-gradient(135deg,var(--n),var(--n));color:#fff;border-radius:20px;padding:40px 32px 32px;overflow:hidden}
+      .ab-quote:before{content:"\201C";position:absolute;top:-18px;left:16px;font:700 9rem/1 Fraunces,Georgia,serif;opacity:.15}
+      .ab-quote q{display:block;position:relative;font:600 1.45rem/1.35 Fraunces,Georgia,serif;quotes:none}
+      .ab-quote small{display:block;margin-top:14px;opacity:.85;position:relative}
+      .ab-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;position:relative}
+      .ab-facts span{background:rgba(255,255,255,.16);border-radius:20px;padding:6px 14px;font-weight:600;font-size:.88rem}
+      .ab-vm{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
+      .ab-box{border-radius:18px;padding:32px;color:#fff;position:relative;overflow:hidden}
+      .ab-box.v{background:var(--n)}
+      .ab-box.m{background:#147a63}
+      .ab-box .bi{font-size:2.4rem;line-height:1}
+      .ab-box h3{color:#fff;font-size:1.6rem;margin:12px 0 10px}
+      .ab-box p{margin:0;opacity:.94;font-size:1.02rem}
+      .ab-box:after{content:"";position:absolute;right:-50px;bottom:-50px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.1)}
+      .ab-vals h3.t{font-size:1.5rem;color:var(--n);margin:0 0 4px}
+      .ab-vals>p{color:var(--m);margin:0 0 20px}
+      .ab-vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+      .ab-v{background:var(--c);border:1px solid var(--l);border-left:5px solid var(--g);border-radius:12px;padding:20px}
+      .ab-v:nth-child(even){border-left-color:var(--n)}
+      .ab-v:nth-child(3n){border-left-color:var(--r)}
+      .ab-v .ic{font-size:1.7rem}
+      .ab-v h4{font:700 1.1rem Fraunces,Georgia,serif;color:var(--n);margin:6px 0 4px}
+      .ab-v p{margin:0;color:var(--m);font-size:.93rem}
+      @media(max-width:800px){.ab-story,.ab-vm{grid-template-columns:1fr}}
+      .pk .btn{margin-top:14px;padding:9px 16px;font-size:.9rem}
+      .pk .tag{display:inline-block;background:var(--r);color:#fff;border-radius:20px;padding:2px 12px;font-size:.78rem;font-weight:700;margin-bottom:8px}
+
+      /* ===== FILTERS ===== */
+      .fb{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 20px}
+      .fb>div{flex:1 1 240px;max-width:380px}
+      .fb label{margin:0 0 4px}
+      .fb select,.fb input{padding:13px 14px;border:2px solid var(--l);border-radius:12px;background:var(--bg);font-size:1rem}
+      .fb select:focus,.fb input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(63,143,47,.2)}
+      .fb .ct2{color:var(--m);font-weight:600;padding-bottom:12px}
+      .fb .clr{padding:11px 18px}
+      .nores{display:none;text-align:center;color:var(--m);padding:32px 16px;background:var(--c);border:1px dashed var(--l);border-radius:12px}
+      .doc .dp{display:inline-block;background:var(--l);color:var(--n);border-radius:20px;padding:2px 12px;font-size:.78rem;font-weight:700;margin-bottom:8px}
+    
+
+
+
+
+/* ===== HEADER REFINEMENTS ===== */
+header{padding:4px 20px}
+header .w{max-width:1360px;gap:14px;flex-wrap:nowrap}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+header .brand img{height:72px;width:auto;max-width:130px}
+.bn{display:flex;flex-direction:column;line-height:1.05}
+.bn b{font:700 1.5rem/1 Fraunces,Georgia,serif;letter-spacing:.4px;background:linear-gradient(90deg,var(--g),var(--n));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;white-space:nowrap}
+.bn small{display:flex;align-items:center;gap:8px;margin-top:5px;font:800 .7rem 'Nunito Sans',system-ui,sans-serif;letter-spacing:.46em;text-transform:uppercase;color:var(--r)}
+.bn small:after{content:"";flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--r),transparent)}
+nav{flex-wrap:nowrap;white-space:nowrap;gap:14px;font-size:.9rem}
+.hr{flex-shrink:0}
+.hr .btn{white-space:nowrap;line-height:1.2;padding:9px 14px;font-size:.88rem}
+select.lg{width:auto;min-width:0;height:36px;padding:2px 4px;font-size:.85rem;border-radius:6px}
+@media(max-width:1280px){
+  .bn b{font-size:1.3rem}
+  .bn small{font-size:.62rem;letter-spacing:.4em}
+  header .brand img{height:66px}
+  nav{gap:10px;font-size:.84rem}
+  .hr{gap:6px}
+  .hr .btn{padding:9px 10px;font-size:.82rem}
+}
+@media(max-width:1240px){
+  .mb{display:block}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--c);flex-direction:column;padding:12px 20px;border-bottom:1px solid var(--l);gap:4px;white-space:normal;font-size:.95rem}
+  nav.open{display:flex}
+  nav a{padding:12px 0;font-size:1.05rem}
+  header .w{justify-content:flex-start}
+  .hr{margin-left:auto}
+}
+@media(max-width:560px){
+  header{padding:4px 12px}
+  header .w{gap:8px}
+  header .brand img{height:50px}
+  .brand{gap:8px}
+  .bn b{font-size:1.02rem}
+  .bn small{font-size:.55rem;letter-spacing:.3em;margin-top:3px}
+  .hr .btn{padding:8px 9px;font-size:.78rem}
+}
+@media(max-width:400px){
+  .bn small{display:none}
+  .hr .btn.r{padding:8px 7px;font-size:.74rem}
+}
+
+@media(max-width:700px){.hb{display:none}}
+@media(max-width:400px){
+  header{padding:4px 8px}
+  header .w{gap:4px}
+  header .brand img{height:44px}
+  .brand{gap:6px}
+  .bn b{font-size:.92rem}
+  .mb{padding:4px 6px}
+  select.lg{height:34px;font-size:.78rem;padding:2px 0}
+  .hr{gap:4px}
+  .hr .btn.r{padding:7px 6px;font-size:.7rem}
+}
+
+/* ===== HOME SLIDESHOW (redesigned) ===== */
+.sld{max-width:1240px;margin:44px auto 12px;padding:0 20px}
+.sld .frm{position:relative;padding:5px;border-radius:30px;background:linear-gradient(135deg,var(--g),var(--n) 55%,var(--r));box-shadow:0 30px 60px -22px rgba(42,44,124,.55),0 12px 24px -12px rgba(0,0,0,.3)}
+.sld .trk{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;border-radius:25px;scrollbar-width:none;background:#0d1b2a}
+.sld .trk::-webkit-scrollbar{display:none}
+.sld .sd{position:relative;flex:0 0 100%;scroll-snap-align:center;aspect-ratio:11/4;min-height:230px;overflow:hidden;background:linear-gradient(135deg,#147a63,#2a2c7c)}
+.sld .sd .im{position:absolute;inset:0;overflow:hidden}
+/* sides: the same picture blurred (fills the 16/7 frame) ; front: the WHOLE picture, never cropped */
+.sld .sd .im:before,.sld .sd .im:after{content:"";position:absolute;background-image:var(--bg);background-position:center;background-repeat:no-repeat}
+.sld .sd .im:before{inset:0;background-size:cover;filter:brightness(.72) saturate(1.15);transform:scale(1);transition:transform 7s ease-out}
+.sld .sd .im:after{inset:0;background-size:contain}
+.sld .sd.act .im:before{transform:scale(1.1)}
+.sld .sd:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,transparent 22%,transparent 82%,rgba(0,0,0,.2) 100%)}
+.sld .sd.vd{background:#000}
+.sld .sd.vd video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sld .snd{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:3;border:1px solid rgba(255,255,255,.55);border-radius:30px;padding:11px 24px;background:rgba(15,23,42,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:800 1rem system-ui,sans-serif;letter-spacing:.3px;cursor:pointer;white-space:nowrap;transition:background .25s,transform .25s}
+.sld .snd:hover{background:rgba(224,31,38,.9);transform:translateX(-50%) scale(1.05)}
+.sld .ar{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.18);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;z-index:3;display:grid;place-items:center;padding:0 0 4px;transition:background .25s,color .25s,transform .25s}
+.sld .ar:hover{background:#fff;color:var(--n);transform:translateY(-50%) scale(1.1)}
+.sld .ar.pv{left:20px}.sld .ar.nx{right:20px}
+.sld .ct{position:absolute;top:18px;right:20px;z-index:3;padding:5px 14px;border-radius:20px;background:rgba(15,23,42,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:700 .85rem system-ui,sans-serif;letter-spacing:.12em;border:1px solid rgba(255,255,255,.35)}
+.sld .dots{display:flex;justify-content:center;gap:9px;margin-top:18px}
+.sld .dots button{width:11px;height:11px;border-radius:6px;border:0;padding:0;background:var(--l);cursor:pointer;transition:width .35s,background .35s}
+.sld .dots button:hover{background:var(--m)}
+.sld .dots button.on{width:38px;background:linear-gradient(90deg,var(--g),var(--n))}
+@media(max-width:700px){
+  .sld{margin-top:28px;padding:0 12px}
+  .sld .frm{padding:3px;border-radius:20px}
+  .sld .trk{border-radius:17px}
+  .sld .sd{aspect-ratio:4/3}
+  .sld .ar{display:none}
+  .sld .ct{top:10px;right:10px;font-size:.75rem;padding:3px 10px}
+  .sld .snd{bottom:12px;padding:9px 18px;font-size:.9rem}
+}
+@media(prefers-reduced-motion:reduce){.sld .sd .im:before{transition:none}.sld .sd.act .im:before{transform:none}}
+
+/* ===== AMHARIC / OROMO TYPOGRAPHY ===== */
+html[lang="am"] body,html[lang="am"] button,html[lang="am"] input,html[lang="am"] select,html[lang="am"] textarea{font-family:'Noto Sans Ethiopic','Nunito Sans',system-ui,sans-serif}
+html[lang="am"] h1,html[lang="am"] h2,html[lang="am"] h3,html[lang="am"] .bn b,html[lang="am"] .hero h1 span{font-family:'Noto Serif Ethiopic','Noto Sans Ethiopic',serif;line-height:1.3}
+html[lang="am"] .bn small,html[lang="am"] .hero h1 span:nth-child(3){letter-spacing:.12em;text-transform:none;font-family:'Noto Sans Ethiopic',sans-serif}
+html[lang="am"] .hero h1 span{line-height:1.15}
+html[lang="am"] nav{font-size:.84rem}
+html[lang="om"] .bn small,html[lang="om"] .hero h1 span:nth-child(3){letter-spacing:.3em}
+
+/* hover colour --n : header "Book Appointment" and home "Meet our doctors" */
+@media(hover:hover){
+  .hr .btn.hb:hover,.btn.md:hover{
+    background:var(--n);
+    border-color:var(--n);
+    color:#fff
+  }
+}
+
+/* floating buttons: Call = --n (hover --g) ; Book Now = --g (hover --n) */
+.fl a.fc{background:var(--n);border:2px solid var(--n)}
+.fl a.fb2{background:var(--g);border:2px solid var(--g)}
+@media(hover:hover){
+  .fl a.fc:hover{background:var(--g);border-color:var(--g);color:#fff}
+  .fl a.fb2:hover,#sub:hover{background:var(--n);border-color:var(--n);color:#fff}
+}
+
+/* shine slide on floating Call / Book Now (same as .btn) */
+.fl a{position:relative;overflow:hidden}
+.fl a::after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .6s;pointer-events:none}
+@media(hover:hover){.fl a:hover::after{left:130%}}
+
+/* ===== SOCIAL PLATFORM BUTTONS (Address page) ===== */
+.soBox{position:relative;overflow:hidden;margin-top:32px;padding:30px;border-radius:22px;color:#fff;background:linear-gradient(135deg,#147a63,var(--n) 70%);box-shadow:0 18px 40px -18px rgba(42,44,124,.6)}
+.soBox:before,.soBox:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+.soBox:before{width:260px;height:260px;right:-70px;top:-110px}
+.soBox:after{width:180px;height:180px;left:-60px;bottom:-90px}
+.soHd{position:relative;margin-bottom:20px}
+.soHd h3{margin:0 0 4px;color:#fff;font-size:1.5rem}
+.soHd p{margin:0;opacity:.88}
+.soGr{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.soB{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .3s,background .3s,box-shadow .3s,border-color .3s}
+.soI{flex:0 0 48px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#fff;transition:transform .35s}
+.soI svg{width:23px;height:23px;fill:currentColor}
+.sFb .soI{color:#1877f2}.sIg .soI{color:#e1306c}.sTg .soI{color:#229ed9}.sTt .soI{color:#111}
+.soT{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.soT b{font-size:1.05rem;font-weight:800}
+.soT small{opacity:.85;font-size:.82rem;margin-top:2px}
+.soA{margin-left:auto;font-size:1.7rem;line-height:1;opacity:.7;transition:transform .3s,opacity .3s}
+@media(hover:hover){
+  .soB:hover{transform:translateY(-6px);border-color:transparent;box-shadow:0 14px 28px -10px rgba(0,0,0,.55)}
+  .soB:hover .soI{transform:rotate(-8deg) scale(1.1)}
+  .soB:hover .soA{transform:translateX(5px);opacity:1}
+  .sFb:hover{background:#1877f2}
+  .sIg:hover{background:linear-gradient(45deg,#f9a825,#e1306c 55%,#833ab4)}
+  .sTg:hover{background:#229ed9}
+  .sTt:hover{background:#111}
+}
+@media(max-width:560px){.soBox{padding:22px 16px}.soGr{grid-template-columns:1fr 1fr;gap:10px}.soB{flex-direction:column;text-align:center;padding:14px 8px}.soA{display:none}.soT{align-items:center}}
+
+/* ===== ADDRESS PAGE (restyled like the Follow Us buttons) ===== */
+.adHd{position:relative;display:inline-block;padding-bottom:12px;margin-bottom:6px}
+.adHd:after{content:"";position:absolute;left:0;bottom:0;width:84px;height:5px;border-radius:5px;background:linear-gradient(90deg,var(--g),var(--n),var(--r))}
+.adIn{color:var(--m);max-width:62ch;margin-top:8px;font-size:1.03rem}
+.adP{position:relative;overflow:hidden;display:grid;gap:14px;padding:26px;border:none;border-radius:22px;color:#fff;background:linear-gradient(135deg,#147a63,var(--n) 75%);box-shadow:0 18px 40px -18px rgba(42,44,124,.6)}
+.adP:before,.adP:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07);pointer-events:none}
+.adP:before{width:240px;height:240px;right:-70px;top:-100px}
+.adP:after{width:170px;height:170px;left:-60px;bottom:-80px}
+.adR{position:relative;z-index:1;display:flex;gap:16px;align-items:center;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .3s,background .3s,box-shadow .3s}
+.adR .addrIc{width:48px;height:48px;background:#fff!important;transition:transform .35s}
+.adR b{color:#fff}
+.adNm{font-size:1.12rem}
+.adTx,.adP a.adTx{color:rgba(255,255,255,.88)!important;line-height:1.5}
+.adLive{color:#ffb4b8;font-weight:800}
+.adP .btn{position:relative;z-index:1;margin-top:4px!important;background:#fff;color:var(--n);border-color:#fff}
+@media(hover:hover){
+  .adR:hover{transform:translateY(-4px);background:rgba(255,255,255,.2);box-shadow:0 12px 24px -12px rgba(0,0,0,.5)}
+  .adR:hover .addrIc{transform:rotate(-8deg) scale(1.08)}
+  .adP .btn:hover{background:var(--g);border-color:var(--g);color:#fff}
+}
+.mapFrm{display:flex;padding:5px;border-radius:27px;background:linear-gradient(135deg,var(--g),var(--n) 55%,var(--r));box-shadow:0 18px 40px -18px rgba(42,44,124,.6)}
+.mapFrm .mapBtn{flex:1;border-radius:22px;box-shadow:none}
+@media(max-width:560px){.adP{padding:18px 14px}.adR{padding:12px}}
+
+/* ===== PACKAGE PRICE (compact): was 1,000, now 300 ===== */
+.pc{display:inline-flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:10px 0 2px;padding:6px 12px;border-radius:10px;background:rgba(63,143,47,.10);border:1px dashed var(--g)}
+.pc s{color:var(--m);font-size:.85rem;font-weight:600;text-decoration-color:var(--r);text-decoration-thickness:2px}
+.pc b{font:800 1.35rem/1.2 Fraunces,Georgia,serif;color:var(--n)}
+.pc small{flex-basis:100%;color:var(--g);font-weight:800;font-size:.76rem}
+
+/* ===== HEADER MENU TEXT: bold + a little bigger on wide screens (header size unchanged) ===== */
+nav a{font-weight:800}
+@media(min-width:1401px){html:not([lang="om"]) nav{font-size:.94rem}}
+
+      /* Promo banner with follow buttons */
+      .pr{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 14px;background:var(--n);color:#fff;text-align:center;padding:10px 16px;font-weight:600;font-size:1.2rem}
+      .pr a{color:inherit}
+      .pr .ps{display:inline-flex;gap:8px}
+      .pr .ps a{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .2s,box-shadow .2s}
+      .pr .ps a svg{width:17px;height:17px;fill:currentColor}
+      .pr .ps a:hover{transform:translateY(-2px) scale(1.1);box-shadow:0 6px 14px rgba(0,0,0,.35)}
+      .pr .ps a:focus-visible{outline:3px solid #b6f09c;outline-offset:2px}
+      .pr .pFb{color:#1877f2}.pr .pIg{color:#e1306c}.pr .pTg{color:#229ed9}.pr .pTt{color:#111}
+      @media(prefers-reduced-motion:reduce){.pr .ps a{transition:none}}
+
+/* ===== RESPONSIVE LAYOUT PATCH: preserve existing colors and content ===== */
+html { width:100%; overflow-x:clip; }
+body { width:100%; min-width:320px; overflow-x:clip; }
+img, video, iframe, svg { max-width:100%; }
+img, video { height:auto; }
+.w { width:min(100% - 40px, 1200px); }
+section { padding:clamp(32px, 5vw, 56px) 20px; }
+.hero .w { min-width:0; }
+.hero h1 { overflow-wrap:anywhere; }
+/* Adjust only the 1st and 3rd hero backgrounds downward; leave slide 2 unchanged. */
+.hero .hbg:nth-child(1),
+.hero .hbg:nth-child(3) { background-position:center 0%; }
+.hero .hbg:nth-child(2) { background-position:center center; }
+.gr, .ct, .ab-story, .ab-vm, .ab-vg, .soGr { min-width:0; }
+.gr > *, .ct > *, .ab-story > *, .ab-vm > *, .ab-vg > *, .soGr > * { min-width:0; }
+
+/* Keep the header from squeezing or overflowing at medium monitor widths. */
+@media (max-width: 1240px) {
+  header .w { width:100%; }
+  header .brand { min-width:0; }
+  .bn b { white-space:normal; }
+  .hr { min-width:0; }
+}
+
+/* Tablet and small laptop */
+@media (max-width: 900px) {
+  .w { width:min(100% - 32px, 760px); }
+  section { padding:38px 16px; }
+  .hero { min-height:0; padding:54px 16px; }
+  .hero .w { grid-template-columns:minmax(0, 1fr); gap:22px; }
+  .hero .hp { max-width:100%; }
+  .qa { padding:0 16px; }
+  .qa .w { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .qa a { border-bottom:1px solid var(--l); }
+  .ct { grid-template-columns:minmax(0,1fr); }
+  .ab-story, .ab-vm { grid-template-columns:minmax(0,1fr); }
+  .sld { width:100%; }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  html { scroll-padding-top:62px; }
+  .w { width:100%; }
+  section { padding:30px 14px; }
+  header { padding:5px 10px; }
+  header .w { width:100%; gap:7px; }
+  header .brand { flex:1 1 auto; min-width:0; gap:7px; }
+  header .brand img { width:42px; height:42px; max-width:42px; object-fit:contain; }
+  .bn { min-width:0; }
+  .bn b { font-size:clamp(.82rem, 4vw, 1.05rem); white-space:normal; overflow-wrap:anywhere; }
+  .bn small { font-size:.48rem; letter-spacing:.18em; }
+  .mb { flex:0 0 auto; }
+  .hr { flex:0 0 auto; gap:4px; }
+  .hr .btn { padding:7px 8px; font-size:.7rem; white-space:normal; }
+  select.lg { max-width:48px; }
+  .hero { min-height:0; padding:38px 14px 30px; }
+  .hero .w { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; }
+  .hero h1 { font-size:clamp(1.55rem, 7vw, 2.2rem); line-height:1.18; }
+  .hero h1 span { font-size:clamp(2rem, 10vw, 3.2rem); }
+  .hero h1 span:nth-child(3) { letter-spacing:.22em; gap:8px; }
+  .hero p { font-size:.95rem; }
+  .hero .btn { margin:3px 4px 3px 0; padding:10px 12px; font-size:.88rem; }
+  .hp { padding:15px; }
+  .qa { margin-top:0; padding:0 10px; }
+  .qa .w { grid-template-columns:repeat(2,minmax(0,1fr)); border-radius:10px; }
+  .qa a { padding:12px 5px; font-size:.78rem; overflow-wrap:anywhere; }
+  .gr { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .cd { padding:14px; }
+  .cd h3 { font-size:1rem; overflow-wrap:anywhere; }
+  .cd p { font-size:.86rem; }
+  .st .w { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 10px; }
+  .st b { font-size:clamp(1.7rem, 8vw, 2.3rem); }
+  .alb { grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:clamp(115px, 34vw, 170px); gap:8px; }
+  .gal:nth-child(1) { grid-column:span 2; grid-row:span 1; }
+  .gal:nth-child(6), .gal:nth-child(7) { grid-column:span 1; }
+  .sld { margin:22px auto 8px; padding:0 10px; }
+  .sld .sd { min-height:0; aspect-ratio:4/3; }
+  .sld .snd { bottom:9px; padding:8px 13px; font-size:.8rem; max-width:calc(100% - 24px); white-space:normal; }
+  .sld .ct { font-size:.68rem; }
+  .fb { gap:8px; }
+  .fb>div { flex:1 1 100%; max-width:none; }
+  .fb .ct2 { padding-bottom:0; }
+  form { padding:16px; }
+  .nv { gap:10px; }
+  .nv .btn { padding:9px 12px; }
+  .ab-quote, .ab-box { padding:24px 20px; }
+  .soBox { padding:22px 16px; }
+  .soGr { grid-template-columns:minmax(0,1fr); }
+  .fl { right:8px; bottom:calc(8px + env(safe-area-inset-bottom,0px)); }
+  .fl a { padding:9px 12px; font-size:.82rem; }
+  .lb-stage { padding:0 6px; }
+  .lb-top { padding:10px 12px; }
+  footer { padding:30px 14px 8px; }
+  footer .w { grid-template-columns:minmax(0,1fr); }
+}
+
+/* Very narrow phones: avoid squeezed header and single-column text overflow. */
+@media (max-width: 380px) {
+  header .brand img { width:34px; height:38px; max-width:34px; }
+  .bn b { font-size:.78rem; }
+  .bn small { display:none; }
+  .mb { font-size:1.05rem; padding:4px 6px; }
+  .hr .btn { padding:6px; font-size:.66rem; }
+  .gr { grid-template-columns:minmax(0,1fr); }
+  .qa .w { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .hero h1 span { font-size:1.9rem; }
+  .hero h1 span:nth-child(3) { letter-spacing:.12em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+}
+
+
+      /* Call icons: computer keeps the emoji; phones get a red phone icon (emoji looks gray there) */
+      .fci{display:none}
+      @media(max-width:700px){
+        .fcd{display:none}
+        .fci{display:inline-block;color:#e01f26;vertical-align:-3px;margin-right:2px;line-height:1}
+        .fci svg{width:18px;height:18px;display:block}
+        .fl a.fc .fci{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;vertical-align:-5px}
+        .fl a.fc .fci svg{width:13px;height:13px}
+      }
+      /* Directions: red location pin on computer and phone */
+      .dir .fcd{display:none}
+      .dir .fci{display:inline-block;color:#e01f26;vertical-align:-3px;margin-right:2px;line-height:1}
+      .dir .fci svg{width:18px;height:18px;display:block}
+      /* Hero background: computer = backho, backho2, backho3 sliding; mobile = backho0 only */
+      .hero .hbg.hbm{display:none}
+      @media(max-width:700px){
+        .hero .hbg{display:none}
+        .hero .hbg.hbm{display:block;opacity:1;background-position:center top}
+      }
+      /* Mobile: "Call Us" sits at the bottom center under the 4 buttons */
+      @media(max-width:640px){.qa .w a:nth-child(5){grid-column:1/-1;border-right:0}}
+</style>
+  </head>
+  <body>
+
+    <!-- ================= HEADER / NAVIGATION ================= -->
+    <header><div class="w"><a class="brand" href="#home"><img src="images/Profile.jpg" alt="Nile Century Hospital logo" onerror="this.onerror=null;this.src='images/Profile.png'"><span class="bn"><b>Nile Century</b><small>Hospital</small></span></a>
+        <button class="mb" id="mb" aria-label="Menu">☰</button><nav id="nv"><a href="#home" data-i="n0">Home</a><a href="#about" data-i="n1">About</a><a href="#services" data-i="n2">Services</a><a href="#doctors" data-i="n3">Doctors</a><a href="#packages" data-i="n4">Packages</a><a href="#guide">Patient Guide</a><a href="#news" data-i="n5">News</a><a href="#contact" data-i="n6">Address</a></nav>
+        <div class="hr"><select class="lg" id="lang" aria-label="Language"><option value="en">EN</option><option value="am">አማ</option><option value="om">OM</option></select><a class="btn hb" href="#book" data-i="book">Book Appointment</a><a class="btn r" href="tel:0998111114">🚑 0998111114/15</a></div></div></header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main id="top">
+
+      <!-- ===== HOME: HERO (scrolling background slideshow) ===== -->
+      <div class="hero" data-p="home"><div class="hbgwrap" id="heroBg"><div class="hbg on" data-img="backho"></div><div class="hbg" data-img="backho2"></div><div class="hbg" data-img="backho3"></div><div class="hbg hbm" data-img="backho0"></div></div><div class="w"><div><h1 data-i="h1"><span>Nile</span> <span>Century</span> <span>Hospital</span> Delivering Quality and Compassionate Care!!!</h1><p data-i="hp">Modern, compassionate healthcare in Mizan-kinbre. Beyond 30 Experienced Specialists, 24/7 Emergency and Ambulance service, and easy online booking for new patients.</p><p><a class="btn" href="#book" data-i="book">Book Appointment</a> <a class="btn o" href="#doctors" data-i="fd">Find a Doctor</a></p></div>
+          <div class="hp"><div><div><span style="color: rgb(197, 32, 32);"><b>24/7</b> Emergency and Ambulance</span></div></div><div><b>New patient?</b>Request a visit in 3 short steps. We call you to confirm.</div></div></div></div>
+
+      <!-- ===== HOME: QUICK ACTION BAR ===== -->
+      <div class="qa" data-p="home"><div class="w"><a href="#book">📅 Book</a><a href="#doctors">🩺 Find a Doctor</a><a href="#packages">🏥 Health Packages</a><a class="dir" href="https://maps.app.goo.gl/TJ81pgytPus9gb9N9" target="_blank" rel="noopener"><span class="fcd">📍</span><span class="fci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></span> Directions</a><a href="tel:0111864871"><span class="fcd">📞</span><span class="fci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg></span> Call Us</a></div></div>
+
+      <!-- ===== HOME: IMAGE SLIDER (scroll or swipe, 4 images) ===== -->
+      <section class="sld" data-p="home" aria-label="Hospital photos and video">
+        <div class="frm">
+          <div class="trk" id="trk">
+            <div class="sd"><div class="im" data-img="im1" style="--bg:url(images/im1.jpg)"></div></div>
+            <div class="sd"><div class="im" data-img="im2" style="--bg:url(images/im2.jpg)"></div></div>
+            <div class="sd"><div class="im" data-img="im3" style="--bg:url(images/im3.jpg)"></div></div>
+            <div class="sd"><div class="im" data-img="im5" style="--bg:url(images/im5.jpg)"></div></div>
+            <div class="sd"><div class="im" data-img="im4" style="--bg:url(images/im4.jpg)"></div></div>
+            <div class="sd vd" id="vSlide"><video id="sVid" muted playsinline preload="metadata" aria-label="Hospital video"><source src="images/video.mp4" type="video/mp4"><source src="images/video.webm" type="video/webm"></video><button class="snd" id="sSnd" data-nt type="button" aria-label="Turn sound on or off">&#128263; Sound off</button></div>
+          </div>
+          <div class="ct" id="sCt">01 / 05</div>
+          <button class="ar pv" id="sPv" aria-label="Previous slide">&#8249;</button>
+          <button class="ar nx" id="sNx" aria-label="Next slide">&#8250;</button>
+        </div>
+        <div class="dots" id="sDots"></div>
+      </section>
+
+
+      <!-- ===== HOME: PROMO BANNER ===== -->
+      <div data-p="home" class="pr">🩺 Free screening day: Card, blood pressure and sugar checks. Date to be announced on, ........<span class="ps"><a class="pFb" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook: follow us for the screening date"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a><a class="pIg" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram: follow us for the screening date"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38-.66.67-1.07 1.34-1.38 2.13-.3.76-.5 1.63-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg></a><a class="pTg" href="https://t.me/+VjszJ7MA2Wk4OTNk" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram: follow us for the screening date"><svg viewBox="0 0 24 24"><path d="M23.05 2.1 19.6 20.7c-.26 1.14-.95 1.42-1.92.88l-5.3-3.9-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4L18.6 6.1c.44-.39-.1-.6-.68-.22L6.5 13.3 1.2 11.66c-1.16-.36-1.18-1.16.24-1.72L21.6.15c.96-.36 1.8.22 1.45 1.95z"/></svg></a><a class="pTt" href="https://tiktok.com/@nile.century.hosp5" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok: follow us for the screening date"><svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.9-.95-1.4-2.2-1.4-3.5V2h-3.45v13.4a2.59 2.59 0 1 1-1.84-2.48v-3.5a6.03 6.03 0 1 0 5.29 5.98V9.4a7.3 7.3 0 0 0 4.3 1.38V7.3a3.9 3.9 0 0 1-2.9-1.48z"/></svg></a></span> <a href="#book">........... <u>Reserve a spot</u></a></div>
+
+      <!-- ===== PAGE: ABOUT ===== -->
+      <section id="about"><div class="w">
+          <div class="ab-story"><div>
+              <h2>Establishment Story of <br>Nile Century Hospital</h2>
+              <p>The idea of establishing Nile Century Hospital was initiated by Dr. Fikru Bekele, with the vision of creating a quality, patient-centered healthcare institution.
+              The institution was subsequently legally established through the collective efforts of Dr. Fikru Bekele, Dr. Robel Wondisho, Dr. Yerosan Tadesse, and Dr. Ayana Guto.</p>
+              <p>Following its legal establishment, other specialist doctors and supportive professionals joined the initiative, contributing their expertise, resources, and commitment to the growth of the institution.
+              Dr. Fikru Bekele was elected to serve as the first CEO, while Dr. Yosan Tadesse was elected to serve as the first  Medical Director.</p>  
+              <p>Today, Nile Century Hospital has grown into a professional partnership of 32 members, united by a shared vision and commitment to providing quality healthcare services.</p>                        
+            </div>
+            <div class="ab-quote"><q>Delivering Quality and <br>Compassionate Care! <br>We do not offer one without the other.</q><small>Nile Century Hospital, our promise to every patient</small>
+              <div class="ab-facts"><span>🚑 24/7 emergency</span><span>🤰 Safe maternity care</span><span>🧪 In-house lab and imaging</span></div></div></div>
+
+          <div class="ab-vm">
+            <div class="ab-box v"><div class="bi">🔭</div><h3>Our Vision</h3><br><p>To be one of the leading centers of excellence in healthcare among private hospitals in Ethiopia by 2030 E.C and in East Africa By 2035 E.C.</p></div>
+            <div class="ab-box m"><div class="bi"></div><h3>🎯Our Mission</h3><p>
+<ul>
+  <li>To provide accessible, safe, and patient-centered healthcare services of the highest quality.</li>
+  <li>To promote disease prevention, health education, and community wellness.</li>
+  <li>To foster continuous learning, innovation, and research to improve healthcare outcomes.</li>
+</ul></p></div>
+          </div>
+
+          <div class="ab-vals"><h3 class="t">Our Values</h3>
+            <div class="ab-vg">
+              <div class="ab-v"><div class="ic">❤️</div><h4>Compassion</h4><p>We listen first and treat people, not just conditions.</p></div>
+              <div class="ab-v"><div class="ic">🛡️</div><h4>Patient-Centered Care</h4><p>Clean, careful and double-checked care at every step.</p></div>
+              <div class="ab-v"><div class="ic">🤝</div><h4>Respect and Dignity</h4><p>Every patient is welcomed equally, in their own language.</p></div>
+              <div class="ab-v"><div class="ic">🎓</div><h4>Excellence</h4><p>Continuous learning so our team stays skilled and current.</p></div>
+              <div class="ab-v"><div class="ic">⚖️</div><h4>Integrity</h4><p>Honest advice, clear prices and no unnecessary tests.</p></div>
+              <div class="ab-v"><div class="ic">🌍</div><h4>Teamwork</h4><p></p></div>
+              <div class="ab-v"><div class="ic">🌍</div><h4>Innovation</h4><p></p></div>
+              <div class="ab-v"><div class="ic">🌍</div><h4>Accountability</h4><p></p></div>              
+            </div></div>
+        </div></section>
+
+      <!-- ===== PAGE: SERVICES (full list) ===== -->
+      <section id="services" style="background:var(--c)"><div class="w"><h2>Our Services</h2><div class="fb"><div><label for="svQ">Search services</label><input type="search" id="svQ" placeholder="Search services, e.g. maternity, lab, X-ray" autocomplete="off"></div><div class="ct2" id="svCt" data-nt aria-live="polite"></div></div>
+          <div class="gr" id="svGr">
+            <div class="cd"><div class="ic">🚑</div><h3>Emergency and Ambulance</h3><p>Open 24/7. Ambulance: 0998111114/15.</p></div>
+            <div class="cd"><div class="ic">🩺</div><h3>Internal Medicine</h3><p>Diagnosis and long-term care for adults.</p></div>            
+            <div class="cd"><div class="ic">🧪</div><h3>Laboratory, Pathology and Microbiology</h3><p>Accurate, fast test results from our medical laboratory.</p></div>            
+            <div class="cd"><div class="ic">🩻</div><h3>X-Ray and 4D Ultrasound</h3><p>Modern imaging including X-ray and 4D ultrasonography.</p></div>                        
+            <div class="cd"><div class="ic">✂️</div><h3>Major and Minor Surgery</h3><p>Safe surgical care, from minor procedures to major operations.</p></div>            
+            <div class="cd"><div class="ic">🛏️</div><h3>Inpatient Care</h3><p>Comfortable admission with round-the-clock medical attention.</p></div>            
+            <div class="cd"><div class="ic">🫀</div><h3>Cardiology and Pulmonology</h3><p>Care for heart and lung conditions, from checkups to ongoing treatment.</p></div>
+            <div class="cd"><div class="ic">🩸</div><h3>Hypertension and Diabetes Care</h3><p>Monitoring and long-term management of blood pressure and blood sugar.</p></div>
+            <div class="cd"><div class="ic">💧</div><h3>Renal Care</h3><p>Diagnosis and ongoing management of kidney disease.</p></div>
+            <div class="cd"><div class="ic">🦋</div><h3>Thyroid and Endocrine Care</h3><p>Management of thyroid and other hormone-related disorders.</p></div>
+            <div class="cd"><div class="ic">👶</div><h3>Pediatrics</h3><p>Child checkups, vaccination and treatment.</p></div>
+            <div class="cd"><div class="ic">🤰</div><h3>Maternity and Delivery</h3><p>Antenatal care, safe delivery, postnatal support.</p></div>
+            <div class="cd"><div class="ic">👩‍⚕️</div><h3>Obstetrics and Gynecology</h3><p>Women's health care, pregnancy follow-up and gynecologic treatment.</p></div>
+            <div class="cd"><div class="ic">🦷</div><h3>Dental and Maxillofacial</h3><p>Dental care and treatment of the mouth, jaw and face.</p></div>
+            <div class="cd"><div class="ic">🧴</div><h3>Dermatology</h3><p>Diagnosis and treatment of skin, hair and nail conditions.</p></div>
+            <div class="cd"><div class="ic">👂</div><h3>Ear, Nose and Throat (ENT)</h3><p>Care for ear, nose and throat problems in adults and children.</p></div>
+            <div class="cd"><div class="ic">🦴</div><h3>Orthopedics</h3><p>Treatment of bone, joint and muscle conditions and injuries.</p></div>
+            <div class="cd"><div class="ic">👁️</div><h3>Ophthalmology</h3><p>Eye examinations and treatment of eye conditions.</p></div>
+            <div class="cd"><div class="ic">🏃</div><h3>Physiotherapy and Rehabilitation</h3><p>Recovery programs to restore movement and strength.</p></div>
+            <div class="cd"><div class="ic">💊</div><h3>Pharmacy</h3><p>Quality medicines on site.</p></div>
+            <div class="nores" id="svNo">No services match your search. Try another word or call 0111864871.</div>
+          </div></div></section>
+
+      <!-- ===== HOME: SERVICES PREVIEW ===== -->
+      <section data-p="home"><div class="w"><h2>Our Services</h2><div class="gr"><a class="cd" href="#services"><div class="ic">🚑</div><h3>Emergency and Ambulance</h3><p>24/7 care.</p></a><a class="cd" href="#services"><div class="ic">🤰</div><h3>Maternity</h3><p>Safe delivery and care.</p></a><a class="cd" href="#services"><div class="ic">👶</div><h3>Pediatrics</h3><p>Care for your children.</p></a><a class="cd" href="#services"><div class="ic">🧪&amp;🩻</div><h3>Laboratory & X-Ray with Radiologist</h3><p>Fast, accurate results.</p></a></div><p><a class="btn o" href="#services">View all services</a> <a class="btn md" href="#doctors">Meet our doctors</a></p></div></section>
+
+      <!-- ===== HOME: WHY CHOOSE US ===== -->
+      <section data-p="home"><div class="w"><h2>Why Choose Us</h2><div class="gr">
+            <div class="cd"><h3>Experienced specialists</h3><p>All of our doctors are specialists, you can trust.</p></div>
+            <div class="cd"><h3>Modern equipment</h3><p>Up-to-date diagnostics and treatment tools & Machine.</p></div>
+            <div class="cd"><h3>24/7 emergency</h3><p>Care and ambulance any hour of the day.</p></div>
+            <div class="cd"><h3>Clear, fair prices</h3><p>Published packages and accepted insurance.</p></div></div></div></section>
+
+      <!-- ===== PAGE: DOCTORS ===== -->
+      <section id="doctors" style="background:var(--c)"><div class="w"><h2>Our Doctors</h2><p style="color:var(--m);margin:0 0 14px">Filter by department, then book directly.</p><div class="fb"><div><label for="docDept">Department</label><select id="docDept"><option value="">All departments</option><option>Emergency</option><option>Internal medicine</option><option>Cardiology and Pulmonology</option><option>Hypertension and Diabetes</option><option>Renal care</option><option>Thyroid and Endocrine</option><option>Surgery</option><option>Pediatrics</option><option>Maternity and Delivery</option><option>Obstetrics and Gynecology</option><option>Inpatient care</option><option>Dental and Maxillofacial</option><option>Dermatology</option><option>ENT</option><option>Orthopedics</option><option>Ophthalmology</option><option>Physiotherapy and Rehabilitation</option><option>Radiology and 4D ultrasound</option><option>Laboratory and Pathology</option><option>Pharmacy</option></select></div><div class="ct2" id="docCt" data-nt aria-live="polite"></div></div>
+          <div class="gr">
+            <div class="cd doc" data-dept="Emergency"><div class="ph"><img src="images/Dr Fikru.jpg" alt="Doctor Fikru" onerror="this.onerror=null;this.src='images/Dr Fikru.png'"></div><div class="in"><span class="dp">Emergency</span><br><h3>Dr. Fikru</h3><p>Emergency&Critical Care Specialist · 5+ years<br>English, Afaan Oromo, Amharic · Mon-Sun Every Night</p><p><a class="btn" href="#book" onclick="pick('Dr. Fikru')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Internal medicine"><div class="ph"><img src="images/photo.jpg" alt="Doctor Samuel" onerror="this.onerror=null;this.src='images/photo.png'"></div><div class="in"><span class="dp">Internal medicine</span><br><h3>Dr. Samuel</h3><p>General Physician · 5+ years<br>Amharic, English · Mon–Sat</p><p><a class="btn" href="#book" onclick="pick('Dr. Samuel')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Cardiology and Pulmonology"><div class="ph" style="background:#e01f26"><span class="av">D3</span></div><div class="in"><span class="dp">Cardiology and Pulmonology</span><br><h3>Doctor 3</h3><p>Cardiologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 3')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Cardiology and Pulmonology"><div class="ph" style="background:#2a2c7c"><span class="av">D4</span></div><div class="in"><span class="dp">Cardiology and Pulmonology</span><br><h3>Doctor 4</h3><p>Pulmonologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 4')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Hypertension and Diabetes"><div class="ph" style="background:#3f8f2f"><span class="av">D5</span></div><div class="in"><span class="dp">Hypertension and Diabetes</span><br><h3>Doctor 5</h3><p>Internist, Hypertension and Diabetes · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 5')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Renal care"><div class="ph" style="background:#147a63"><span class="av">D6</span></div><div class="in"><span class="dp">Renal care</span><br><h3>Doctor 6</h3><p>Nephrologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 6')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Thyroid and Endocrine"><div class="ph" style="background:#e01f26"><span class="av">D7</span></div><div class="in"><span class="dp">Thyroid and Endocrine</span><br><h3>Doctor 7</h3><p>Endocrinologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 7')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Surgery"><div class="ph" style="background:#2a2c7c"><span class="av">D8</span></div><div class="in"><span class="dp">Surgery</span><br><h3>Doctor 8</h3><p>General Surgeon · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 8')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Surgery"><div class="ph" style="background:#3f8f2f"><span class="av">D9</span></div><div class="in"><span class="dp">Surgery</span><br><h3>Doctor 9</h3><p>Surgeon · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 9')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Pediatrics"><div class="ph" style="background:#147a63"><span class="av">D10</span></div><div class="in"><span class="dp">Pediatrics</span><br><h3>Doctor 10</h3><p>Pediatrician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 10')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Pediatrics"><div class="ph" style="background:#e01f26"><span class="av">D11</span></div><div class="in"><span class="dp">Pediatrics</span><br><h3>Doctor 11</h3><p>Pediatrician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 11')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Maternity and Delivery"><div class="ph" style="background:#2a2c7c"><span class="av">D12</span></div><div class="in"><span class="dp">Maternity and Delivery</span><br><h3>Doctor 12</h3><p>Obstetrician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 12')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Maternity and Delivery"><div class="ph" style="background:#3f8f2f"><span class="av">D13</span></div><div class="in"><span class="dp">Maternity and Delivery</span><br><h3>Doctor 13</h3><p>Obstetrician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 13')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Obstetrics and Gynecology"><div class="ph" style="background:#147a63"><span class="av">D14</span></div><div class="in"><span class="dp">Obstetrics and Gynecology</span><br><h3>Doctor 14</h3><p>Gynecologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 14')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Obstetrics and Gynecology"><div class="ph" style="background:#e01f26"><span class="av">D15</span></div><div class="in"><span class="dp">Obstetrics and Gynecology</span><br><h3>Doctor 15</h3><p>Gynecologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 15')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Inpatient care"><div class="ph" style="background:#2a2c7c"><span class="av">D16</span></div><div class="in"><span class="dp">Inpatient care</span><br><h3>Doctor 16</h3><p>Inpatient Physician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 16')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Dental and Maxillofacial"><div class="ph" style="background:#3f8f2f"><span class="av">D17</span></div><div class="in"><span class="dp">Dental and Maxillofacial</span><br><h3>Doctor 17</h3><p>Dentist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 17')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Dental and Maxillofacial"><div class="ph" style="background:#147a63"><span class="av">D18</span></div><div class="in"><span class="dp">Dental and Maxillofacial</span><br><h3>Doctor 18</h3><p>Maxillofacial Surgeon · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 18')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Dermatology"><div class="ph" style="background:#e01f26"><span class="av">D19</span></div><div class="in"><span class="dp">Dermatology</span><br><h3>Doctor 19</h3><p>Dermatologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 19')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="ENT"><div class="ph" style="background:#2a2c7c"><span class="av">D20</span></div><div class="in"><span class="dp">ENT</span><br><h3>Doctor 20</h3><p>ENT Specialist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 20')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Orthopedics"><div class="ph" style="background:#3f8f2f"><span class="av">D21</span></div><div class="in"><span class="dp">Orthopedics</span><br><h3>Doctor 21</h3><p>Orthopedic Surgeon · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 21')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Orthopedics"><div class="ph" style="background:#147a63"><span class="av">D22</span></div><div class="in"><span class="dp">Orthopedics</span><br><h3>Doctor 22</h3><p>Orthopedic Surgeon · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 22')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Ophthalmology"><div class="ph" style="background:#e01f26"><span class="av">D23</span></div><div class="in"><span class="dp">Ophthalmology</span><br><h3>Doctor 23</h3><p>Ophthalmologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 23')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Physiotherapy and Rehabilitation"><div class="ph" style="background:#2a2c7c"><span class="av">D24</span></div><div class="in"><span class="dp">Physiotherapy and Rehabilitation</span><br><h3>Doctor 24</h3><p>Physiotherapist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 24')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Radiology and 4D ultrasound"><div class="ph" style="background:#3f8f2f"><span class="av">D25</span></div><div class="in"><span class="dp">Radiology and 4D ultrasound</span><br><h3>Doctor 25</h3><p>Radiologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 25')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Radiology and 4D ultrasound"><div class="ph" style="background:#147a63"><span class="av">D26</span></div><div class="in"><span class="dp">Radiology and 4D ultrasound</span><br><h3>Doctor 26</h3><p>Sonographer · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 26')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Laboratory and Pathology"><div class="ph" style="background:#e01f26"><span class="av">D27</span></div><div class="in"><span class="dp">Laboratory and Pathology</span><br><h3>Doctor 27</h3><p>Pathologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 27')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Laboratory and Pathology"><div class="ph" style="background:#2a2c7c"><span class="av">D28</span></div><div class="in"><span class="dp">Laboratory and Pathology</span><br><h3>Doctor 28</h3><p>Microbiologist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 28')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Internal medicine"><div class="ph" style="background:#3f8f2f"><span class="av">D29</span></div><div class="in"><span class="dp">Internal medicine</span><br><h3>Doctor 29</h3><p>Internal Medicine Specialist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 29')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Emergency"><div class="ph" style="background:#147a63"><span class="av">D30</span></div><div class="in"><span class="dp">Emergency</span><br><h3>Doctor 30</h3><p>Emergency Physician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 30')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Pharmacy"><div class="ph" style="background:#e01f26"><span class="av">D31</span></div><div class="in"><span class="dp">Pharmacy</span><br><h3>Doctor 31</h3><p>Clinical Pharmacist · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 31')">Book with this doctor</a></p></div></div>
+            <div class="cd doc" data-dept="Internal medicine"><div class="ph" style="background:#2a2c7c"><span class="av">D32</span></div><div class="in"><span class="dp">Internal medicine</span><br><h3>Doctor 32</h3><p>General Physician · Years of experience<br>Amharic, English · Days</p><p><a class="btn" href="#book" onclick="pick('Doctor 32')">Book with this doctor</a></p></div></div>
+            <div class="nores" id="docNo">No doctors found in this department yet.</div>
+          </div></div></section>
+
+      <!-- ===== PAGE: HEALTH PACKAGES ===== -->
+      <section id="packages"><div class="w"><h2>Health Packages and Offers</h2><div class="fb"><div><label for="pkQ">Search packages</label><input type="search" id="pkQ" placeholder="Search packages, e.g. heart, child, maternity" autocomplete="off"></div><div class="ct2" id="pkCt" data-nt aria-live="polite"></div></div>
+          <div class="gr" id="pkGr">
+            <div class="cd pk"><h3>Card</h3><p>Get your patient card once for faster registration and easy follow-up visits.</p><div class="pc"><s>ETB 1,000</s><b>ETB 300</b><small>You save ETB 700</small></div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><h3>Basic Checkup</h3><p>Consultation, blood pressure, blood sugar, CBC.</p><div class="pr">ETB ____</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><h3>Executive Checkup</h3><p>Full blood panel, urine, ECG, ultrasound, doctor review.</p><div class="pr">ETB ____</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><h3>Maternity Package</h3><p>Antenatal visits, labs, ultrasound, delivery plan.</p><div class="pr">ETB ____</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><h3>First-visit offer</h3><p>New patients: discount on your first consultation. Refer a friend and both save.</p><div class="pr">Ask us</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div><div class="cd pk"><h3>Child Wellness Package</h3><p>Growth and development check, vaccination review, eye and hearing screen, pediatrician consultation.</p><div class="pr">ETB ____</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><h3>Diabetes Care Package</h3><p>Blood sugar profile, HbA1c, kidney and lipid tests, foot and eye check, diet advice.</p><div class="pr">ETB ____</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><h3>Heart Health Package</h3><p>Blood pressure, cholesterol profile, ECG, cardiac risk review and doctor consultation.</p><div class="pr">ETB ____</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="cd pk"><span class="tag">Offer</span><br><h3>Family Offer</h3><p>Two or more family members checked in the same visit save on consultation and lab fees.</p><div class="pr">Ask us</div><a class="btn o" href="#book" onclick="pick('Health Package')">Book this package</a></div>
+            <div class="nores" id="pkNo">No packages match your search. Ask reception about custom packages.</div>
+          </div></div></section>
+
+      <!-- ===== HOME: STATS ===== -->
+      <div class="st" data-p="home"><section><div class="w"><div><b>1+</b>Years of service</div><div><b>32+</b>Specialists</div><div><b>10,000+</b>Patients served</div><div><b>18+</b>Departments</div></div></section></div>
+
+      <!-- ===== HOME: TESTIMONIALS ===== -->
+      <section data-p="home" style="background:var(--c)"><div class="w"><h2>What Patients Say</h2><div class="gr">
+            <div class="cd"><p>“The staff were kind and explained everything clearly. I felt cared for.”</p><p><b>Patient name, Sululta</b></p></div>
+            <div class="cd"><p>“Booking was easy and the reception called me the same day.”</p><p><b>Patient name, Addis Ababa</b></p></div>
+            <div class="cd"><p>“The ambulance arrived fast and the emergency team was excellent.”</p><p><b>Patient name, Mizankinbre</b></p></div></div></div></section>
+
+      <!-- ===== PAGE: BOOK APPOINTMENT (3-step form) ===== -->
+      <section id="book"><div class="w"><h2 style="text-align:center">Book an Appointment</h2>
+          <form id="f"><div class="al">In an emergency, call <a href="tel:0998111114"><b>0998111114/15</b></a> immediately. Do not wait for an online reply.</div>
+            <div class="stp"><span class="on"></span><span></span><span></span></div>
+            <div class="fs on"><label for="dp">Department or doctor</label><select id="dp"><option>General Consultation</option><optgroup label="Departments"><option>Emergency</option><option>Internal Medicine</option><option>Cardiology and Pulmonology</option><option>Hypertension and Diabetes</option><option>Renal Care</option><option>Thyroid and Endocrine</option><option>Surgery</option><option>Pediatrics</option><option>Maternity</option><option>Obstetrics and Gynecology</option><option>Inpatient Care</option><option>Dental</option><option>Dermatology</option><option>ENT</option><option>Orthopedics</option><option>Ophthalmology</option><option>Physiotherapy</option><option>Radiology</option><option>Laboratory</option><option>Pharmacy</option></optgroup><optgroup label="Doctors"><option value="Dr. Fikru">Dr. Fikru · Emergency</option><option value="Dr. Samuel">Dr. Samuel · Internal medicine</option><option value="Doctor 3">Doctor 3 · Cardiology and Pulmonology</option><option value="Doctor 4">Doctor 4 · Cardiology and Pulmonology</option><option value="Doctor 5">Doctor 5 · Hypertension and Diabetes</option><option value="Doctor 6">Doctor 6 · Renal care</option><option value="Doctor 7">Doctor 7 · Thyroid and Endocrine</option><option value="Doctor 8">Doctor 8 · Surgery</option><option value="Doctor 9">Doctor 9 · Surgery</option><option value="Doctor 10">Doctor 10 · Pediatrics</option><option value="Doctor 11">Doctor 11 · Pediatrics</option><option value="Doctor 12">Doctor 12 · Maternity and Delivery</option><option value="Doctor 13">Doctor 13 · Maternity and Delivery</option><option value="Doctor 14">Doctor 14 · Obstetrics and Gynecology</option><option value="Doctor 15">Doctor 15 · Obstetrics and Gynecology</option><option value="Doctor 16">Doctor 16 · Inpatient care</option><option value="Doctor 17">Doctor 17 · Dental and Maxillofacial</option><option value="Doctor 18">Doctor 18 · Dental and Maxillofacial</option><option value="Doctor 19">Doctor 19 · Dermatology</option><option value="Doctor 20">Doctor 20 · ENT</option><option value="Doctor 21">Doctor 21 · Orthopedics</option><option value="Doctor 22">Doctor 22 · Orthopedics</option><option value="Doctor 23">Doctor 23 · Ophthalmology</option><option value="Doctor 24">Doctor 24 · Physiotherapy and Rehabilitation</option><option value="Doctor 25">Doctor 25 · Radiology and 4D ultrasound</option><option value="Doctor 26">Doctor 26 · Radiology and 4D ultrasound</option><option value="Doctor 27">Doctor 27 · Laboratory and Pathology</option><option value="Doctor 28">Doctor 28 · Laboratory and Pathology</option><option value="Doctor 29">Doctor 29 · Internal medicine</option><option value="Doctor 30">Doctor 30 · Emergency</option><option value="Doctor 31">Doctor 31 · Pharmacy</option><option value="Doctor 32">Doctor 32 · Internal medicine</option></optgroup><optgroup label="Other"><option>Health Package</option><option>Teleconsultation request</option><option>Callback request</option></optgroup></select></div>
+            <div class="fs"><label for="dt">Preferred date</label><input type="date" id="dt"><label for="tm">Preferred time</label><select id="tm"><option>Morning (2:00–6:00)</option><option>Afternoon (8:00–11:00)</option><option>Evening (12:00–6:00)</option></select></div>
+            <div class="fs"><label for="nm">Full name</label><input id="nm" autocomplete="name"><label for="ph">Phone number</label><input id="ph" type="tel" autocomplete="tel"><label for="rs">Reason for visit</label><textarea id="rs" rows="2"></textarea><label class="ck"><input type="checkbox" id="np" checked> I am a new patient</label><label for="ins">Insurance (optional)</label><input id="ins" placeholder="Insurance company / ID"></div>
+            <div class="nv"><button type="button" class="btn o" id="bk" style="visibility:hidden">Back</button><button type="button" class="btn" id="nx" data-nt>Next</button></div>
+            <div id="ok" data-nt></div></form></div></section>
+
+      <!-- ===== ABOUT: INSURANCE / PAYMENT / ACCREDITATION ===== -->
+      <section id="trust"><div class="w"><h2>Insurance, Payment and Accreditation</h2><div class="tr"><span>Ministry of Health license</span><span>Insurance partner 1</span><span>Insurance partner 3</span><span>Community-based health insurance</span><span>Cash</span><span>Telebirr/CBE Birr</span></div></div></section>
+
+      <!-- ===== PAGE: PATIENT GUIDE ===== -->
+      <section id="guide" style="background:var(--c)"><div class="w"><h2>Patient Guide for New Patients</h2><div class="gr"><div class="cd"><h3>What to bring</h3><p>ID card, Credit Organization Card/Letter, insurance card, previous medical papers and a list of your medicines.</p></div><div class="cd"><h3>How your first visit works</h3><p>Register at reception, see the nurse for basic checks on Triage, pay at casier, then meet your doctor.</p></div><div class="cd"><h3>Payment</h3><p>Pay at the cashier before tests or medicines. Credit aorganization and Insurance is accepted for partners.</p></div><div class="cd"><h3>Arrive early</h3><p>Come 15 minutes before your appointment for registration.</p></div></div></div></section>
+
+      <!-- ===== PAGE: GALLERY ===== -->
+      <section id="gallery"><div class="w"><h2>Gallery and Virtual Tour</h2><p class="alb-n">Nile Century Hospital photo album &middot; 6 photos and 1 video. Click any photo to view it larger.</p><div class="alb" id="alb"><button type="button" class="gal" data-img="im1" aria-label="Open photo 1 of 7" style="background-image:url(images/im1.jpg)"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></i></button><button type="button" class="gal" data-img="im2" aria-label="Open photo 2 of 7" style="background-image:url(images/im2.jpg)"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></i></button><button type="button" class="gal" data-img="im3" aria-label="Open photo 3 of 7" style="background-image:url(images/im3.jpg)"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></i></button><button type="button" class="gal" data-img="im5" aria-label="Open photo 4 of 7" style="background-image:url(images/im5.jpg)"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></i></button><button type="button" class="gal" data-img="im4" aria-label="Open photo 5 of 7" style="background-image:url(images/im4.jpg)"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></i></button><button type="button" class="gal" data-img="im8" aria-label="Open photo 6 of 7" style="background-image:url(images/im8.jpg)"><i><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></i></button><button type="button" class="gal vid" data-video="1" aria-label="Play video, item 7 of 7"><video muted playsinline preload="metadata"><source src="images/video.mp4#t=0.5" type="video/mp4"><source src="images/video.webm#t=0.5" type="video/webm"></video><i><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></i></button></div></div></section>
+      <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <div class="lb-top"><span id="lbCt">1 / 7</span><button type="button" id="lbX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+        <div class="lb-stage"><button type="button" class="lb-prev" id="lbP" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><img id="lbImg" alt="Nile Century Hospital photo"><video id="lbVid" playsinline preload="metadata"><source src="images/video.mp4" type="video/mp4"><source src="images/video.webm" type="video/webm"></video><div class="lb-vm" id="lbVm">Video not found. Put video.mp4 in the images folder.</div><button type="button" class="lb-next" id="lbN" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+        <div class="lb-vc" id="lbVc"><button type="button" id="lbPl" aria-label="Play"></button><input type="range" id="lbSk" min="0" max="1000" value="0" aria-label="Seek"><span id="lbTm">0:00 / 0:00</span><button type="button" id="lbMu" aria-label="Mute"></button></div>
+        <div class="lb-th" id="lbTh"></div>
+      </div>
+
+      <!-- ===== PAGE: FAQ ===== -->
+      <section id="faq" style="background:var(--c)"><div class="w"><h2>Frequently Asked Questions</h2><details><summary>How do I book an appointment?</summary><p>Use the booking form. Reception will call you to confirm.</p></details><details><summary>Do you accept insurance?</summary><p>Yes, for our partner insurers. Call 0111864871 to check yours.</p></details><details><summary>Is the emergency open at night?</summary><p>Yes, 24/7. Ambulance: 0998111114/15.</p></details><details><summary>Can I see a doctor online?</summary><p>Choose "Teleconsultation request" in the form and we will arrange it.</p></details></div></section>
+
+      <!-- ===== PAGE: CAREERS ===== -->
+      <section id="careers"><div class="w"><h2>Careers</h2><p style="color:var(--m)">Join a caring team. Send your CV to careers nilecenturyhospital@gmail.com</p></div></section>
+
+      <!-- ===== PAGE: PRIVACY POLICY ===== -->
+      <section id="privacy" style="background:var(--c)"><div class="w"><h2>Privacy Policy and Terms</h2><p style="color:var(--m);max-width:70ch">This website only collects the name, phone and visit details you enter to arrange your appointment. We never publish them and this site holds no medical records.</p></div></section>
+
+      <!-- ===== PAGE: NEWS & HEALTH TIPS ===== -->
+      <section id="news" style="background:var(--c)"><div class="w"><h2>News and Health Tips</h2><div class="gr" id="news-list">
+            <div class="cd"><h3>Free screening day</h3><p>Join our community blood pressure and sugar screening. Date to be announced.</p></div>
+            <div class="cd"><h3>Caring for your child in the rainy season</h3><p>Simple steps to prevent common childhood illnesses.</p></div>
+            <div class="cd"><h3>Why antenatal visits matter</h3><p>What to expect at each stage of pregnancy.</p></div></div></div></section>
+
+      <!-- ===== PAGE: CONTACT & LOCATION ===== -->
+      <section id="contact" style="background:var(--c)"><div class="w">
+        <h2 class="adHd">Our Address</h2>
+        <p class="adIn">We'd love to see you. Whether it's a scheduled visit or an emergency, here's every way to find us and reach us, day or night.</p>
+        <div class="ct" style="margin-top:28px;align-items:stretch">
+          <div class="cd adP">
+            <div class="adR">
+              <div class="addrIc" style="background:rgba(224,31,38,.12);color:var(--r)"><svg viewBox="0 0 24 24"><path d="M12 22s7-7.1 7-12.5A7 7 0 0 0 5 9.5C5 14.9 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
+              <div><b class="adNm">Nile Century Hospital</b><br><span class="adTx">Sheger City, Mana Abichu Sub-city<br>On the road from Sululta to Addis Ababa (Mizan-Qinbire)</span></div>
+            </div>
+            <div class="adR">
+              <div class="addrIc" style="background:rgba(42,44,124,.12);color:var(--n)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+              <div><b>Email</b><br><a class="adTx" href="mailto:nilecenturyhospital@gmail.com"><u>nilecenturyhospital@gmail.com</u></a></div>
+            </div>
+            <div class="adR">
+              <div class="addrIc" style="background:rgba(42,44,124,.12);color:var(--n)"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+              <div><b>Phone</b><br><a class="adTx" href="tel:0111864871">0111864871</a></div>
+            </div>
+            <div class="adR">
+              <div class="addrIc" style="background:rgba(224,31,38,.12);color:var(--r)"><svg viewBox="0 0 24 24"><path d="M2.5 16V7a1 1 0 0 1 1-1H13v10"/><path d="M13 9.5h4.2l3.3 3.8V16"/><path d="M2.5 16H5M9 16h6M19 16h1.5"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M7.75 8.3v4.4M5.55 10.5h4.4"/></svg></div>
+              <div><b>Ambulance</b><br><a class="adTx" href="tel:0998111114">0998111114/15 <span class="adLive">· 24/7</span></a></div>
+            </div>
+            <div class="adR">
+              <div class="addrIc" style="background:rgba(63,143,47,.12);color:var(--g)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+              <div><b>Hours</b><br><span class="adTx">Emergency: 24/7<br>Outpatient: Mon-Sat, 8:00-20:00 <i>(edit)</i></span></div>
+            </div>
+            <a class="btn" href="https://maps.app.goo.gl/TJ81pgytPus9gb9N9" target="_blank" rel="noopener" style="justify-self:start;margin-top:6px">Get directions</a>
+          </div>
+          <div class="mapFrm"><a class="mapBtn" href="https://maps.app.goo.gl/TJ81pgytPus9gb9N9" target="_blank" rel="noopener" aria-label="Open directions to Nile Century Hospital on Google Maps">
+            <svg class="mapArt" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="320" fill="#e8f0e4"/>
+              <path d="M-20 60 L420 20" stroke="#fff" stroke-width="10"/>
+              <path d="M-20 180 L420 220" stroke="#fff" stroke-width="14"/>
+              <path d="M70 -20 L120 340" stroke="#fff" stroke-width="10"/>
+              <path d="M300 -20 L260 340" stroke="#fff" stroke-width="8"/>
+              <path d="M-20 130 Q140 170 180 90 T420 70" stroke="#cfe3ff" stroke-width="16" fill="none" opacity=".8"/>
+              <circle cx="150" cy="120" r="3" fill="#b8c9b2"/>
+              <circle cx="260" cy="200" r="3" fill="#b8c9b2"/>
+              <circle cx="90" cy="230" r="3" fill="#b8c9b2"/>
+              <circle cx="330" cy="110" r="3" fill="#b8c9b2"/>
+            </svg>
+            <span class="pin"><svg viewBox="0 0 24 24" fill="var(--r)"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.6" fill="#fff"/></svg></span>
+            <span class="mapLabel"><b>Nile Century Hospital</b>Sululta - Mizan-Qinbire road<span class="mapCta">Get directions <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          </a></div>
+        </div>
+        <div class="soBox">
+          <div class="soHd"><h3>Follow Us</h3><p>Health tips, news and updates from Nile Century Hospital.</p></div>
+          <div class="soGr">
+            <a class="soB sFb" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><span class="soI"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></span><span class="soT"><b>Facebook</b><small>Follow us</small></span><span class="soA" aria-hidden="true">&#8250;</span></a>
+            <a class="soB sIg" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><span class="soI"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38-.66.67-1.07 1.34-1.38 2.13-.3.76-.5 1.63-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg></span><span class="soT"><b>Instagram</b><small>Follow us</small></span><span class="soA" aria-hidden="true">&#8250;</span></a>
+            <a class="soB sTg" href="https://t.me/+VjszJ7MA2Wk4OTNk" target="_blank" rel="noopener" aria-label="Telegram"><span class="soI"><svg viewBox="0 0 24 24"><path d="M23.05 2.1 19.6 20.7c-.26 1.14-.95 1.42-1.92.88l-5.3-3.9-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4L18.6 6.1c.44-.39-.1-.6-.68-.22L6.5 13.3 1.2 11.66c-1.16-.36-1.18-1.16.24-1.72L21.6.15c.96-.36 1.8.22 1.45 1.95z"/></svg></span><span class="soT"><b>Telegram</b><small>Follow us</small></span><span class="soA" aria-hidden="true">&#8250;</span></a>
+            <a class="soB sTt" href="https://tiktok.com/@nile.century.hosp5" target="_blank" rel="noopener" aria-label="TikTok"><span class="soI"><svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.9-.95-1.4-2.2-1.4-3.5V2h-3.45v13.4a2.59 2.59 0 1 1-1.84-2.48v-3.5a6.03 6.03 0 1 0 5.29 5.98V9.4a7.3 7.3 0 0 0 4.3 1.38V7.3a3.9 3.9 0 0 1-2.9-1.48z"/></svg></span><span class="soT"><b>TikTok</b><small>Follow us</small></span><span class="soA" aria-hidden="true">&#8250;</span></a>
+          </div>
+        </div>
+      </div></section></main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer><div class="w"><div><img src="images/Profile.jpg" alt="Nile Century Hospital logo" style="height:60px;background:#fff;border-radius:8px;object-fit:contain" onerror="this.onerror=null;this.src='images/Profile.png'"><p>Nile Century Hospital <br>Delivering Quality and Compassionate Care!</p></div>
+        <div><h3>Quick links</h3><a href="#services">Services</a><a href="#doctors">Doctors</a><a href="#packages">Health Packages</a><a href="#book">Book Appointment</a><a href="#guide">Patient Guide</a><a href="#faq">FAQ</a><a href="#careers">Careers</a><a href="#gallery">Gallery</a><a href="#privacy">Privacy Policy · Terms</a></div>
+        <div><h3>Emergency</h3><a href="tel:0998111114">🚑 0998111114/15</a><a href="tel:0111864871">📞 0111864871</a></div>
+        <div><h3>Newsletter</h3><input placeholder="Phone or email" aria-label="Newsletter"><button class="btn" type="button" id="sub" data-nt onclick="this.dataset.d=1;this.textContent=tr('Subscribed ✓')">Subscribe</button></div></div>
+      <div class="soc">
+        <a href="https://tiktok.com/@nile.century.hosp5" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82c-.9-.95-1.4-2.2-1.4-3.5V2h-3.45v13.4a2.59 2.59 0 1 1-1.84-2.48v-3.5a6.03 6.03 0 1 0 5.29 5.98V9.4a7.3 7.3 0 0 0 4.3 1.38V7.3a3.9 3.9 0 0 1-2.9-1.48z"/></svg></a>
+        <a href="https://t.me/+VjszJ7MA2Wk4OTNk" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M23.05 2.1 19.6 20.7c-.26 1.14-.95 1.42-1.92.88l-5.3-3.9-2.56 2.46c-.28.28-.52.52-1.07.52l.38-5.4L18.6 6.1c.44-.39-.1-.6-.68-.22L6.5 13.3 1.2 11.66c-1.16-.36-1.18-1.16.24-1.72L21.6.15c.96-.36 1.8.22 1.45 1.95z"/></svg></a>        
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.31-1.46.72-2.13 1.38-.66.67-1.07 1.34-1.38 2.13-.3.76-.5 1.63-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg></a>
+      </div>
+      <p style="text-align:center;opacity:.6;margin-top:24px">© 2026 Nile Century Hospital</p></footer>
+
+    <!-- ===== FLOATING ACTION BUTTONS (Call / Telegram / Book) ===== -->
+    <div class="fl"><a class="fc" href="tel:0111864871"><span class="fcd">📞</span><span class="fci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg></span> Call</a><a class="fb2" href="#book">📅 Book Now</a></div>
+    <script>
+      /* ===== LANGUAGE ENGINE: EN / አማ / OM (whole page) ===== */
+      (function(){
+        var D={"Nile Century": ["ናይል ሴንቸሪ", "Nile Century"], "Nile": ["ናይል", "Nile"], "Century": ["ሴንቸሪ", "Century"], "Hospital": ["ሆስፒታል", "Hospitaala"], "Nile Century Hospital": ["ናይል ሴንቸሪ ሆስፒታል", "Hospitaala Nile Century"], "Home": ["መነሻ", "Jalqaba"], "About": ["ስለ እኛ", "Waa'ee Keenya"], "Services": ["አገልግሎቶች", "Tajaajiloota"], "Doctors": ["ሐኪሞች", "Doktoota"], "Packages": ["ፓኬጆች", "Paakeejiiwwan"], "Patient Guide": ["የታካሚ መመሪያ", "Qajeelfama"], "News": ["ዜና", "Oduu"], "Address": ["አድራሻ", "Teessoo"], "Book Appointment": ["ቀጠሮ ይያዙ", "Beellama Qabadhaa"], "Menu": ["ምናሌ", "Tarree"], "Language": ["ቋንቋ", "Afaan"], "Nile Century Hospital logo": ["የናይል ሴንቸሪ ሆስፒታል አርማ", "Mallattoo Hospitaala Nile Century"], "Delivering Quality and Compassionate Care!!!": ["ጥራት ያለውና ርኅራኄ የተሞላበት እንክብካቤ እናቀርባለን!!!", "Kunuunsa qulqullinaa fi gara laafinaa ni kennina!!!"], "Delivering Quality and": ["ጥራት ያለውና", "Kunuunsa qulqullinaa fi"], "Compassionate Care!": ["ርኅራኄ የተሞላበት እንክብካቤ!", "gara laafinaa ni kennina!"], "Delivering Quality and Compassionate Care!": ["ጥራት ያለውና ርኅራኄ የተሞላበት እንክብካቤ እናቀርባለን!", "Kunuunsa qulqullinaa fi gara laafinaa ni kennina!"], "Modern, compassionate healthcare in Mizan-kinbre. Beyond 30 Experienced Specialists, 24/7 Emergency and Ambulance service, and easy online booking for new patients.": ["በሚዛን ቅንብሬ ዘመናዊና ርኅራኄ የተሞላበት የጤና አገልግሎት። ከ30 በላይ ልምድ ያላቸው ስፔሻሊስቶች፣ የ24 ሰዓት የድንገተኛና የአምቡላንስ አገልግሎት፣ እንዲሁም ለአዲስ ታካሚዎች ቀላል የኦንላይን ቀጠሮ።", "Tajaajila fayyaa ammayyaa fi gara laafinaan guutame Mizaan Kinbireetti. Ogeeyyii muuxannoo qaban 30 ol, tajaajila ariifachiisaa fi ambulaansii sa'aatii 24, akkasumas beellama toora interneetii salphaa dhukkubsattoota haaraaf."], "Find a Doctor": ["ሐኪም ያግኙ", "Doktora Barbaadaa"], "Emergency and Ambulance": ["ድንገተኛና አምቡላንስ(24 ሰዓት በሳምንት 7 ቀን)", "Ariifachiisaa fi Ambulaansii (sa'aatii 24, guyyaa 7)"], "New patient?": ["አዲስ ታካሚ ነዎት?", "Dhukkubsataa haaraa moo?"], "Request a visit in 3 short steps. We call you to confirm.": ["በ3 ቀላል ደረጃዎች ቀጠሮ ይጠይቁ። ለማረጋገጥ እንደውልልዎታለን።", "Tarkaanfii gabaabaa 3tiin beellama gaafadhaa. Mirkaneessuuf isin waamna."], "📅 Book": ["📅 ቀጠሮ ይያዙ", "📅 Beellama Qabadhaa"], "🩺 Find a Doctor": ["🩺 ሐኪም ያግኙ", "🩺 Doktora Barbaadaa"], "🏥 Health Packages": ["🏥 የጤና ፓኬጆች", "🏥 Paakeejiiwwan Fayyaa"], "📍 Directions": ["📍 አቅጣጫ", "📍 Qajeelfama Karaa"], "Directions": ["አቅጣጫ", "Qajeelfama Karaa"], "📞 Call Us": ["📞 ይደውሉልን", "📞 Nu Waamaa"], "Call Us": ["ይደውሉልን", "Nu Waamaa"], "🔇 Sound off": ["🔇 ድምፅ ጠፍቷል", "🔇 Sagaleen cufameera"], "🔊 Sound on": ["🔊 ድምፅ በርቷል", "🔊 Sagaleen banameera"], "🩺 Free screening day: Card, blood pressure and sugar checks. Date to be announced on, ........": ["🩺 ነፃ የምርመራ ቀን፦ ካርድ፣ የደም ግፊትና የስኳር ምርመራ። ቀኑ በ........ ይገለጻል።", "🩺 Guyyaa sakatta’iinsa bilisaa: kaardii, dhiibbaa dhiigaa fi sukkaara sakatta’uu. Guyyaan ........ irratti ni beeksifama."], "Reserve a spot": ["ቦታ ያስይዙ", "Iddoo Qabadhaa"], "Establishment Story of": ["የምሥረታ ታሪክ፦", "Seenaa Hundeeffama"], "The idea of establishing Nile Century Hospital was initiated by Dr. Fikru Bekele, with the vision of creating a quality, patient-centered healthcare institution. The institution was subsequently legally established through the collective efforts of Dr. Fikru Bekele, Dr. Robel Wondisho, Dr. Yerosan Tadesse, and Dr. Ayana Guto.": ["ናይል ሴንቸሪ ሆስፒታልን የማቋቋም ሐሳብ የተጀመረው ጥራት ያለውና ታካሚን ማዕከል ያደረገ የጤና ተቋም ለመፍጠር በማሰብ በዶ/ር ፍቅሩ በቀለ ነው። ከዚያም ተቋሙ በዶ/ር ፍቅሩ በቀለ፣ በዶ/ር ሮቤል ወንዲሾ፣ በዶ/ር የሮሳን ታደሰና በዶ/ር አያና ጉቶ የጋራ ጥረት በሕጋዊ መንገድ ተመሠረተ።", "Yaadni Hospitaala Nile Century hundeessuu kun Doktar Fikruu Bekelee irraa kan eegale yoo ta’u, kaayyoon isaas dhaabbata fayyaa qulqullina qabuu fi dhukkubsataa giddu-galeessa godhate uumuu ture. Dhaabbatichi booda carraaqqii waliinii Doktar Fikruu Bekelee, Doktar Robel Wondishoo, Doktar Yeroosan Tadasaa fi Doktar Ayyaanaa Gutoo tiin seeraan hundaa’e."], "Following its legal establishment, other specialist doctors and supportive professionals joined the initiative, contributing their expertise, resources, and commitment to the growth of the institution. Dr. Fikru Bekele was elected to serve as the first CEO, while Dr. Yosan Tadesse was elected to serve as the first Medical Director.": ["በሕጋዊ መንገድ ከተመሠረተ በኋላ ሌሎች ስፔሻሊስት ሐኪሞችና ደጋፊ ባለሙያዎች ተቀላቀሉ፤ ዕውቀታቸውን፣ ሀብታቸውንና ቁርጠኝነታቸውን ለተቋሙ ዕድገት አበረከቱ። ዶ/ር ፍቅሩ በቀለ የመጀመሪያው ዋና ሥራ አስፈጻሚ (CEO)፣ ዶ/ር ዮሳን ታደሰ ደግሞ የመጀመሪያው የሕክምና ዳይሬክተር ሆነው ተመረጡ።", "Erga seeraan hundaa’ee booda doktoonni ogeeyyii biroo fi ogeeyyiin deeggarsa kennan tajaajila kana dabalatan; beekumsa, qabeenyaa fi of kennuu isaanii guddina dhaabbatichaatiif gumaachan. Doktar Fikruu Bekelee Hoogganaa Olaanaa (CEO) isa jalqabaa ta’ee, Doktar Yoosan Tadasaa immoo Daarektara Yaalaa isa jalqabaa ta’ee filatamaniiru."], "Today, Nile Century Hospital has grown into a professional partnership of 32 members, united by a shared vision and commitment to providing quality healthcare services.": ["ዛሬ ናይል ሴንቸሪ ሆስፒታል በጋራ ራዕይና ጥራት ያለው የጤና አገልግሎት ለመስጠት በቁርጠኝነት የተሰባሰቡ የ32 አባላት ሙያዊ ሽርክና ሆኖ አድጓል።", "Har’a Hospitaalli Nile Century hirmaattota ogummaa 32 kan mul’ata walii fi kutannoo tajaajila fayyaa qulqullina qabu kennuuf walitti hidhateen guddateera."], "We do not offer one without the other.": ["አንዱን ያለ ሌላው አናቀርብም።", "Tokko isa kaan malee hin kennu."], "Nile Century Hospital, our promise to every patient": ["ናይል ሴንቸሪ ሆስፒታል፣ ለእያንዳንዱ ታካሚ የገባነው ቃል", "Hospitaala Nile Century, abdii dhukkubsataa hundaaf nuti galle"], "🚑 24/7 emergency": ["🚑 የ24/7 ድንገተኛ አገልግሎት", "🚑 Ariifachiisaa 24/7"], "🤰 Safe maternity care": ["🤰 ደህንነቱ የተጠበቀ የወሊድ እንክብካቤ", "🤰 Kunuunsa da’umsaa nageenya qabu"], "🧪 In-house lab and imaging": ["🧪 የውስጥ ላቦራቶሪና ምስል ምርመራ", "🧪 Laaboraatorii fi suuraa hospitaala keessaa"], "Our Vision": ["ራዕያችን", "Mul’ata Keenya"], "To be one of the leading centers of excellence in healthcare among private hospitals in Ethiopia by 2030 E.C and in East Africa By 2035 E.C.": ["በ2030 ዓ.ም በኢትዮጵያ ካሉ የግል ሆስፒታሎች፣ በ2035 ዓ.ም ደግሞ በምሥራቅ አፍሪካ ከሚጠቀሱ የጤና አገልግሎት የልህቀት ማዕከላት አንዱ መሆን።", "Hospitaalota dhuunfaa Itoophiyaa keessaa bara 2030 E.C., Baha Afriikaa keessaa immoo bara 2035 E.C. wiirtuuwwan olaantummaa tajaajila fayyaa keessaa isa tokko ta’uu."], "🎯Our Mission": ["🎯ተልዕኳችን", "🎯Ergama Keenya"], "To provide accessible, safe, and patient-centered healthcare services of the highest quality.": ["ተደራሽ፣ ደህንነቱ የተጠበቀና ታካሚን ማዕከል ያደረገ እጅግ ከፍተኛ ጥራት ያለው የጤና አገልግሎት መስጠት።", "Tajaajila fayyaa argachuuf salphaa, nageenya qabu, dhukkubsataa giddu-galeessa godhatee fi qulqullina isa olaanaa qabu kennuu."], "To promote disease prevention, health education, and community wellness.": ["በሽታን መከላከልን፣ የጤና ትምህርትንና የማኅበረሰብን ደኅንነት ማስፋፋት።", "Dhukkuba ittisuu, barnoota fayyaa fi fayyaa hawaasaa babal’isuu."], "To foster continuous learning, innovation, and research to improve healthcare outcomes.": ["የጤና አገልግሎት ውጤትን ለማሻሻል ቀጣይነት ያለው ትምህርት፣ ፈጠራና ምርምርን ማበረታታት።", "Bu’aa tajaajila fayyaa fooyyessuuf barumsa itti fufiinsa qabu, kalaqaa fi qorannoo deeggaruu."], "Our Values": ["እሴቶቻችን", "Duudhaalee Keenya"], "Compassion": ["ርኅራኄ", "Gara laafina"], "We listen first and treat people, not just conditions.": ["መጀመሪያ እናዳምጣለን፤ በሽታን ብቻ ሳይሆን ሰዎችን እናክማለን።", "Dura dhaggeeffanna; dhukkuba qofa osoo hin taane namoota yaalla."], "Patient-Centered Care": ["ታካሚን ማዕከል ያደረገ እንክብካቤ", "Kunuunsa Dhukkubsataa Giddu-galeessa Godhate"], "Clean, careful and double-checked care at every step.": ["በእያንዳንዱ ደረጃ ንጹሕ፣ ጥንቃቄ የተሞላበትና ሁለት ጊዜ የተረጋገጠ እንክብካቤ።", "Tarkaanfii hundatti kunuunsa qulqulluu, of eeggannoon guutame fi altokko mirkanaa’e."], "Respect and Dignity": ["አክብሮትና ክብር", "Kabajaa fi Ulfina"], "Every patient is welcomed equally, in their own language.": ["እያንዳንዱ ታካሚ በራሱ ቋንቋ በእኩልነት ይስተናገዳል።", "Dhukkubsataan hundi afaan ofii isaatiin walqixa simatama."], "Excellence": ["ልህቀት", "Olaantummaa"], "Continuous learning so our team stays skilled and current.": ["ቡድናችን ብቁና ወቅታዊ ሆኖ እንዲቀጥል ቀጣይነት ያለው ትምህርት።", "Gareen keenya dandeettii fi ammayyummaa akka eegu barumsa itti fufiinsa qabu."], "Integrity": ["ታማኝነት", "Amanamummaa"], "Honest advice, clear prices and no unnecessary tests.": ["ሐቀኛ ምክር፣ ግልጽ ዋጋና አላስፈላጊ ምርመራ የሌለበት አገልግሎት።", "Gorsa amanamaa, gatii ifa ta’e fi qorannoo bu’aa hin qabne malee."], "Teamwork": ["የቡድን ሥራ", "Hojii Gareetiin"], "Innovation": ["ፈጠራ", "Kalaqa"], "Accountability": ["ተጠያቂነት", "Itti gaafatamummaa"], "Our Services": ["አገልግሎቶቻችን", "Tajaajiloota Keenya"], "Search services": ["አገልግሎት ይፈልጉ", "Tajaajila barbaadaa"], "Search services, e.g. maternity, lab, X-ray": ["አገልግሎት ይፈልጉ፣ ለምሳሌ ወሊድ፣ ላብ፣ ኤክስሬይ", "Tajaajila barbaadaa, fkn da’umsa, laaboraatorii, X-ray"], "Emergency and Ambulance": ["ድንገተኛና አምቡላንስ", "Ariifachiisaa fi Ambulaansii"], "Open 24/7. Ambulance: 0998111114/15.": ["24/7 ክፍት ነው። አምቡላንስ፦ 0998111114/15።", "Sa’aatii 24 banaadha. Ambulaansii: 0998111114/15."], "Internal Medicine": ["የውስጥ ደዌ ሕክምና", "Meediisiinii Keessaa"], "Diagnosis and long-term care for adults.": ["ለአዋቂዎች ምርመራና የረጅም ጊዜ እንክብካቤ።", "Qorannoo fi kunuunsa yeroo dheeraa ga’eessotaaf."], "Laboratory, Pathology and Microbiology": ["ላቦራቶሪ፣ ፓቶሎጂና ማይክሮባዮሎጂ", "Laaboraatorii, Paatooloojii fi Maayikiroobayoloojii"], "Accurate, fast test results from our medical laboratory.": ["ከሕክምና ላቦራቶሪያችን ትክክለኛና ፈጣን የምርመራ ውጤት።", "Bu’aa qorannoo sirrii fi saffisaa laaboraatorii yaalaa keenyaa."], "X-Ray and 4D Ultrasound": ["ራጅና 4D አልትራሳውንድ", "Raajii fi Ultraasaawundii 4D"], "Modern imaging including X-ray and 4D ultrasonography.": ["ኤክስሬይና 4D አልትራሳውንድን ጨምሮ ዘመናዊ የምስል ምርመራ።", "Qorannoo suuraa ammayyaa, X-ray fi ultraasaawundii 4D dabalatee."], "Major and Minor Surgery": ["ትልቅና ትንሽ ቀዶ ሕክምና", "Baqaqsanii Yaaluu Guddaa fi Xiqqaa"], "Safe surgical care, from minor procedures to major operations.": ["ከትንንሽ ሂደቶች እስከ ትልልቅ ቀዶ ሕክምናዎች ደህንነቱ የተጠበቀ የቀዶ ሕክምና እንክብካቤ።", "Kunuunsa baqaqsanii yaaluu nageenya qabu, adeemsa xixiqqaa irraa hanga hojii guddaatti."], "Inpatient Care": ["የተኝቶ ሕክምና እንክብካቤ", "Kunuunsa Dhukkubsattoota Ciisanii"], "Comfortable admission with round-the-clock medical attention.": ["ምቹ የተኝቶ ሕክምና ከቀንና ከሌሊት ሙሉ የሕክምና ክትትል ጋር።", "Ciisanii yaalamuu mijataa, hordoffii yaalaa sa’aatii 24 waliin."], "Cardiology and Pulmonology": ["የልብና የሳንባ ሕክምና", "Meediisiinii Onnee fi Sombaa"], "Care for heart and lung conditions, from checkups to ongoing treatment.": ["ከምርመራ እስከ ቀጣይ ሕክምና ድረስ ለልብና ለሳንባ በሽታዎች እንክብካቤ።", "Kunuunsa dhukkuboota onnee fi sombaaf, sakatta’iinsa irraa hanga yaalii itti fufiinsa qabuutti."], "Hypertension and Diabetes Care": ["የደም ግፊትና የስኳር በሽታ እንክብካቤ", "Kunuunsa Dhiibbaa Dhiigaa fi Dhukkuba Sukkaaraa"], "Monitoring and long-term management of blood pressure and blood sugar.": ["የደም ግፊትና የደም ስኳር ክትትልና የረጅም ጊዜ አያያዝ።", "Hordoffii fi to’annoo yeroo dheeraa dhiibbaa dhiigaa fi sukkaara dhiigaa."], "Renal Care": ["የኩላሊት እንክብካቤ", "Kunuunsa Kalee"], "Diagnosis and ongoing management of kidney disease.": ["የኩላሊት በሽታ ምርመራና ቀጣይ ሕክምና።", "Qorannoo fi to’annoo itti fufiinsa qabu dhukkuba kalee."], "Thyroid and Endocrine Care": ["የታይሮይድና የሆርሞን እንክብካቤ", "Kunuunsa Taayiroyidii fi Hormoonii"], "Management of thyroid and other hormone-related disorders.": ["የታይሮይድና ሌሎች ከሆርሞን ጋር የተያያዙ ችግሮች ሕክምና።", "To’annoo dhukkuboota taayiroyidii fi hormoonii kanneen biroo."], "Pediatrics": ["የሕፃናት ሕክምና", "Daa’immanii"], "Child checkups, vaccination and treatment.": ["የሕፃናት ምርመራ፣ ክትባትና ሕክምና።", "Sakatta’iinsa daa’immanii, talaallii fi yaalii."], "Maternity and Delivery": ["የእናቶችና የወሊድ አገልግሎት", "Da’umsa fi Dhaloota"], "Antenatal care, safe delivery, postnatal support.": ["የቅድመ ወሊድ እንክብካቤ፣ ደህንነቱ የተጠበቀ ወሊድ፣ የድኅረ ወሊድ ድጋፍ።", "Kunuunsa dura da’umsaa, da’umsa nageenya qabu, deeggarsa booda da’umsaa."], "Obstetrics and Gynecology": ["የጽንስና ማህፀን ሕክምና", "Da’umsaa fi Dhukkuba Dubartootaa"], "Women's health care, pregnancy follow-up and gynecologic treatment.": ["የሴቶች ጤና እንክብካቤ፣ የእርግዝና ክትትልና የማህፀን ሕክምና።", "Kunuunsa fayyaa dubartootaa, hordoffii ulfaa’umsaa fi yaalii dhukkuba dubartootaa."], "Dental and Maxillofacial": ["የጥርስና የፊት መንጋጋ ሕክምና", "Ilkaanii fi Fuulaa-Gaaffaa"], "Dental care and treatment of the mouth, jaw and face.": ["የጥርስ እንክብካቤና የአፍ፣ የመንጋጋና የፊት ሕክምና።", "Kunuunsa ilkaanii fi yaalii afaanii, gaaffaa fi fuulaa."], "Dermatology": ["የቆዳ ሕክምና", "Dhukkuba Gogaa"], "Diagnosis and treatment of skin, hair and nail conditions.": ["የቆዳ፣ የፀጉርና የጥፍር በሽታዎች ምርመራና ሕክምና።", "Qorannoo fi yaalii dhukkuboota gogaa, rifeensaa fi qoreensaa."], "Ear, Nose and Throat (ENT)": ["የጆሮ፣ የአፍንጫና የጉሮሮ ሕክምና (ENT)", "Gurra, Funyaan fi Qoonqoo (ENT)"], "Care for ear, nose and throat problems in adults and children.": ["በአዋቂዎችና በሕፃናት ላይ ለሚከሰቱ የጆሮ፣ የአፍንጫና የጉሮሮ ችግሮች እንክብካቤ።", "Kunuunsa rakkoo gurra, funyaanii fi qoonqoo ga’eessotaa fi daa’immanii."], "Orthopedics": ["የአጥንት ሕክምና", "Dhukkuba Lafee"], "Treatment of bone, joint and muscle conditions and injuries.": ["የአጥንት፣ የመገጣጠሚያና የጡንቻ በሽታዎችና ጉዳቶች ሕክምና።", "Yaalii dhukkuboota fi miidhaa lafee, wal-qabsiisaa fi maashaalee."], "Ophthalmology": ["የዓይን ሕክምና", "Dhukkuba Ijaa"], "Eye examinations and treatment of eye conditions.": ["የዓይን ምርመራና የዓይን በሽታዎች ሕክምና።", "Sakatta’iinsa ijaa fi yaalii dhukkuboota ijaa."], "Physiotherapy and Rehabilitation": ["ፊዚዮቴራፒና ተሃድሶ", "Fiiziyooterapii fi Deebi’ee Fayyisuu"], "Recovery programs to restore movement and strength.": ["እንቅስቃሴና ጥንካሬን የሚመልሱ የተሃድሶ ፕሮግራሞች።", "Sagantaalee deebi’ee fayyisuu sochii fi humna deebisan."], "Pharmacy": ["ፋርማሲ", "Faarmaasii"], "Quality medicines on site.": ["ጥራት ያላቸው መድኃኒቶች በቦታው።", "Qoricha qulqullina qabu iddoo kanatti."], "No services match your search. Try another word or call 0111864871.": ["ከፍለጋዎ ጋር የሚመሳሰል አገልግሎት የለም። ሌላ ቃል ይሞክሩ ወይም 0111864871 ይደውሉ።", "Tajaajilli barbaaddan hin argamne. Jecha biraa yaalaa ykn 0111864871 waamaa."], "24/7 care.": ["የ24/7 እንክብካቤ።", "Kunuunsa 24/7."], "Maternity": ["የወሊድ አገልግሎት", "Da’umsa"], "Safe delivery and care.": ["ደህንነቱ የተጠበቀ ወሊድና እንክብካቤ።", "Da’umsa fi kunuunsa nageenya qabu."], "Care for your children.": ["ለልጆችዎ እንክብካቤ።", "Kunuunsa ijoollee keessaniif."], "Laboratory & X-Ray with Radiologist": ["ላቦራቶሪ፣ ኤክስሬይና የራዲዮሎጂ ባለሙያ", "Laaboraatorii, X-Ray fi Radiyooloojii"], "Fast, accurate results.": ["ፈጣንና ትክክለኛ ውጤት።", "Bu’aa saffisaa fi sirrii."], "View all services": ["ሁሉንም አገልግሎቶች ይመልከቱ", "Tajaajiloota hunda ilaalaa"], "Meet our doctors": ["ሐኪሞቻችንን ይተዋወቁ", "Doktoota keenya beekaa"], "Why Choose Us": ["ለምን እኛን ይመርጣሉ", "Maaliif Nu Filattu"], "Experienced specialists": ["ልምድ ያላቸው ስፔሻሊስቶች", "Ogeeyyii muuxannoo qaban"], "All of our doctors are specialists, you can trust.": ["ሁሉም ሐኪሞቻችን የሚታመኑ ስፔሻሊስቶች ናቸው።", "Doktoonni keenya hundi ogeeyyii kan amantan dha."], "Modern equipment": ["ዘመናዊ መሣሪያዎች", "Meeshaalee ammayyaa"], "Up-to-date diagnostics and treatment tools & Machine.": ["ዘመናዊ የምርመራና የሕክምና መሣሪያዎችና ማሽኖች።", "Meeshaalee fi maashinoota qorannoo fi yaalii ammayyaa."], "24/7 emergency": ["የ24/7 ድንገተኛ አገልግሎት", "Ariifachiisaa 24/7"], "Care and ambulance any hour of the day.": ["በማንኛውም ሰዓት እንክብካቤና አምቡላንስ።", "Kunuunsa fi ambulaansii sa’aatii kamiyyuu."], "Clear, fair prices": ["ግልጽና ፍትሐዊ ዋጋ", "Gatii ifa ta’e fi haqa qabeessa"], "Published packages and accepted insurance.": ["የተገለጹ ፓኬጆችና ተቀባይነት ያላቸው ኢንሹራንሶች።", "Paakeejiiwwan beeksifaman fi inshuraansii fudhatamu."], "Our Doctors": ["ሐኪሞቻችን", "Doktoota Keenya"], "Filter by department, then book directly.": ["በክፍል ያጣሩ፤ ከዚያ በቀጥታ ቀጠሮ ይያዙ።", "Kutaadhaan calaluun, itti aansuun kallattiin beellama qabadhaa."], "Department": ["ክፍል", "Kutaa"], "All departments": ["ሁሉም ክፍሎች", "Kutaalee hunda"], "Departments": ["ክፍሎች", "Kutaalee"], "Emergency": ["ድንገተኛ", "Ariifachiisaa"], "Internal medicine": ["የውስጥ ደዌ ሕክምና", "Meediisiinii keessaa"], "Hypertension and Diabetes": ["የደም ግፊትና የስኳር በሽታ", "Dhiibbaa Dhiigaa fi Dhukkuba Sukkaaraa"], "Renal care": ["የኩላሊት እንክብካቤ", "Kunuunsa kalee"], "Thyroid and Endocrine": ["የታይሮይድና የሆርሞን ሕክምና", "Taayiroyidii fi Hormoonii"], "Surgery": ["ቀዶ ሕክምና", "Baqaqsanii yaaluu"], "Inpatient care": ["የተኝቶ ሕክምና እንክብካቤ", "Kunuunsa dhukkubsattoota ciisanii"], "ENT": ["የጆሮ፣ አፍንጫና ጉሮሮ", "Gurra, Funyaan fi Qoonqoo"], "Radiology and 4D ultrasound": ["ራዲዮሎጂና 4D አልትራሳውንድ", "Radiyooloojii fi ultraasaawundii 4D"], "Laboratory and Pathology": ["ላቦራቶሪና ፓቶሎጂ", "Laaboraatorii fi Paatooloojii"], "Dental": ["የጥርስ ሕክምና", "Ilkaanii"], "Physiotherapy": ["ፊዚዮቴራፒ", "Fiiziyooterapii"], "Radiology": ["ራዲዮሎጂ", "Radiyooloojii"], "Laboratory": ["ላቦራቶሪ", "Laaboraatorii"], "Dr. Fikru": ["ዶ/ር ፍቅሩ", "Dr. Fikruu"], "Dr. Samuel": ["ዶ/ር ሳሙኤል", "Dr. Saamu’eel"], "Doctor Fikru": ["ዶክተር ፍቅሩ", "Doktar Fikruu"], "Doctor Samuel": ["ዶክተር ሳሙኤል", "Doktar Saamu’eel"], "Emergency&Critical Care Specialist · 5+ years": ["የድንገተኛና ጽኑ ሕክምና ስፔሻሊስት · 5+ ዓመት", "Ogeessa Ariifachiisaa fi Kunuunsa Cimaa · Waggaa 5+"], "English, Afaan Oromo, Amharic · Mon-Sun Every Night": ["እንግሊዝኛ፣ አፋን ኦሮሞ፣ አማርኛ · ሰኞ–እሑድ በየምሽቱ", "Afaan Ingilizii, Afaan Oromoo, Afaan Amaaraa · Wiixata–Dilbata halkan hunda"], "Book with this doctor": ["ከዚህ ሐኪም ጋር ቀጠሮ ይያዙ", "Doktora kanaan beellama qabadhaa"], "General Physician · 5+ years": ["ጠቅላላ ሐኪም · 5+ ዓመት", "Doktora Waliigalaa · Waggaa 5+"], "Amharic, English · Mon–Sat": ["አማርኛ፣ እንግሊዝኛ · ሰኞ–ቅዳሜ", "Afaan Amaaraa, Afaan Ingilizii · Wiixata–Sanbata"], "Amharic, English · Days": ["አማርኛ፣ እንግሊዝኛ · የሥራ ቀናት", "Afaan Amaaraa, Afaan Ingilizii · Guyyoota"], "Cardiologist · Years of experience": ["የልብ ሐኪም · የልምድ ዓመታት", "Ogeessa Onnee · Waggaa muuxannoo"], "Pulmonologist · Years of experience": ["የሳንባ ሐኪም · የልምድ ዓመታት", "Ogeessa Sombaa · Waggaa muuxannoo"], "Internist, Hypertension and Diabetes · Years of experience": ["የውስጥ ደዌ ሐኪም (የደም ግፊትና የስኳር በሽታ) · የልምድ ዓመታት", "Ogeessa Meediisiinii Keessaa (Dhiibbaa Dhiigaa fi Sukkaara) · Waggaa muuxannoo"], "Nephrologist · Years of experience": ["የኩላሊት ሐኪም · የልምድ ዓመታት", "Ogeessa Kalee · Waggaa muuxannoo"], "Endocrinologist · Years of experience": ["የሆርሞን (ኤንዶክራይን) ሐኪም · የልምድ ዓመታት", "Ogeessa Hormoonii (Endokiriinoloojii) · Waggaa muuxannoo"], "General Surgeon · Years of experience": ["ጠቅላላ የቀዶ ሕክምና ሐኪም · የልምድ ዓመታት", "Ogeessa Baqaqsanii Yaaluu Waliigalaa · Waggaa muuxannoo"], "Surgeon · Years of experience": ["የቀዶ ሕክምና ሐኪም · የልምድ ዓመታት", "Ogeessa Baqaqsanii Yaaluu · Waggaa muuxannoo"], "Pediatrician · Years of experience": ["የሕፃናት ሐኪም · የልምድ ዓመታት", "Ogeessa Daa’immanii · Waggaa muuxannoo"], "Obstetrician · Years of experience": ["የጽንስ ሐኪም · የልምድ ዓመታት", "Ogeessa Da’umsaa · Waggaa muuxannoo"], "Gynecologist · Years of experience": ["የማህፀን ሐኪም · የልምድ ዓመታት", "Ogeessa Dhukkuba Dubartootaa · Waggaa muuxannoo"], "Inpatient Physician · Years of experience": ["የተኝቶ ታካሚዎች ሐኪም · የልምድ ዓመታት", "Doktora Dhukkubsattoota Ciisanii · Waggaa muuxannoo"], "Dentist · Years of experience": ["የጥርስ ሐኪም · የልምድ ዓመታት", "Ogeessa Ilkaanii · Waggaa muuxannoo"], "Maxillofacial Surgeon · Years of experience": ["የፊትና መንጋጋ ቀዶ ሕክምና ሐኪም · የልምድ ዓመታት", "Ogeessa Baqaqsanii Fuulaa fi Gaaffaa · Waggaa muuxannoo"], "Dermatologist · Years of experience": ["የቆዳ ሐኪም · የልምድ ዓመታት", "Ogeessa Gogaa · Waggaa muuxannoo"], "ENT Specialist · Years of experience": ["የጆሮ፣ የአፍንጫና የጉሮሮ ስፔሻሊስት · የልምድ ዓመታት", "Ogeessa Gurra, Funyaanii fi Qoonqoo · Waggaa muuxannoo"], "Orthopedic Surgeon · Years of experience": ["የአጥንት ቀዶ ሕክምና ሐኪም · የልምድ ዓመታት", "Ogeessa Baqaqsanii Lafee · Waggaa muuxannoo"], "Ophthalmologist · Years of experience": ["የዓይን ሐኪም · የልምድ ዓመታት", "Ogeessa Ijaa · Waggaa muuxannoo"], "Physiotherapist · Years of experience": ["ፊዚዮቴራፒስት · የልምድ ዓመታት", "Fiiziyooterapistii · Waggaa muuxannoo"], "Radiologist · Years of experience": ["የራዲዮሎጂ ባለሙያ · የልምድ ዓመታት", "Ogeessa Radiyooloojii · Waggaa muuxannoo"], "Sonographer · Years of experience": ["የአልትራሳውንድ ባለሙያ · የልምድ ዓመታት", "Ogeessa Ultraasaawundii · Waggaa muuxannoo"], "Pathologist · Years of experience": ["የፓቶሎጂ ባለሙያ · የልምድ ዓመታት", "Ogeessa Paatooloojii · Waggaa muuxannoo"], "Microbiologist · Years of experience": ["የማይክሮባዮሎጂ ባለሙያ · የልምድ ዓመታት", "Ogeessa Maayikiroobayoloojii · Waggaa muuxannoo"], "Internal Medicine Specialist · Years of experience": ["የውስጥ ደዌ ስፔሻሊስት · የልምድ ዓመታት", "Ogeessa Meediisiinii Keessaa · Waggaa muuxannoo"], "Emergency Physician · Years of experience": ["የድንገተኛ ሕክምና ሐኪም · የልምድ ዓመታት", "Doktora Ariifachiisaa · Waggaa muuxannoo"], "Clinical Pharmacist · Years of experience": ["ክሊኒካል ፋርማሲስት · የልምድ ዓመታት", "Faarmaasistii Kilinikaalaa · Waggaa muuxannoo"], "General Physician · Years of experience": ["ጠቅላላ ሐኪም · የልምድ ዓመታት", "Doktora Waliigalaa · Waggaa muuxannoo"], "Doctor 1": ["ዶክተር 1", "Doktara 1"], "Doctor 2": ["ዶክተር 2", "Doktara 2"], "Doctor 3": ["ዶክተር 3", "Doktara 3"], "Doctor 4": ["ዶክተር 4", "Doktara 4"], "Doctor 5": ["ዶክተር 5", "Doktara 5"], "Doctor 6": ["ዶክተር 6", "Doktara 6"], "Doctor 7": ["ዶክተር 7", "Doktara 7"], "Doctor 8": ["ዶክተር 8", "Doktara 8"], "Doctor 9": ["ዶክተር 9", "Doktara 9"], "Doctor 10": ["ዶክተር 10", "Doktara 10"], "Doctor 11": ["ዶክተር 11", "Doktara 11"], "Doctor 12": ["ዶክተር 12", "Doktara 12"], "Doctor 13": ["ዶክተር 13", "Doktara 13"], "Doctor 14": ["ዶክተር 14", "Doktara 14"], "Doctor 15": ["ዶክተር 15", "Doktara 15"], "Doctor 16": ["ዶክተር 16", "Doktara 16"], "Doctor 17": ["ዶክተር 17", "Doktara 17"], "Doctor 18": ["ዶክተር 18", "Doktara 18"], "Doctor 19": ["ዶክተር 19", "Doktara 19"], "Doctor 20": ["ዶክተር 20", "Doktara 20"], "Doctor 21": ["ዶክተር 21", "Doktara 21"], "Doctor 22": ["ዶክተር 22", "Doktara 22"], "Doctor 23": ["ዶክተር 23", "Doktara 23"], "Doctor 24": ["ዶክተር 24", "Doktara 24"], "Doctor 25": ["ዶክተር 25", "Doktara 25"], "Doctor 26": ["ዶክተር 26", "Doktara 26"], "Doctor 27": ["ዶክተር 27", "Doktara 27"], "Doctor 28": ["ዶክተር 28", "Doktara 28"], "Doctor 29": ["ዶክተር 29", "Doktara 29"], "Doctor 30": ["ዶክተር 30", "Doktara 30"], "Doctor 31": ["ዶክተር 31", "Doktara 31"], "Doctor 32": ["ዶክተር 32", "Doktara 32"], "Doctor 33": ["ዶክተር 33", "Doktara 33"], "Doctor 34": ["ዶክተር 34", "Doktara 34"], "Doctor 35": ["ዶክተር 35", "Doktara 35"], "Doctor 36": ["ዶክተር 36", "Doktara 36"], "Doctor 37": ["ዶክተር 37", "Doktara 37"], "Doctor 38": ["ዶክተር 38", "Doktara 38"], "Doctor 39": ["ዶክተር 39", "Doktara 39"], "Doctor 3 · Cardiology and Pulmonology": ["ዶክተር 3 · የልብና የሳንባ ሕክምና", "Doktara 3 · Meediisiinii Onnee fi Sombaa"], "Doctor 4 · Cardiology and Pulmonology": ["ዶክተር 4 · የልብና የሳንባ ሕክምና", "Doktara 4 · Meediisiinii Onnee fi Sombaa"], "Doctor 5 · Hypertension and Diabetes": ["ዶክተር 5 · የደም ግፊትና የስኳር በሽታ", "Doktara 5 · Dhiibbaa Dhiigaa fi Dhukkuba Sukkaaraa"], "Doctor 6 · Renal care": ["ዶክተር 6 · የኩላሊት እንክብካቤ", "Doktara 6 · Kunuunsa kalee"], "Doctor 7 · Thyroid and Endocrine": ["ዶክተር 7 · የታይሮይድና የሆርሞን ሕክምና", "Doktara 7 · Taayiroyidii fi Hormoonii"], "Doctor 8 · Surgery": ["ዶክተር 8 · ቀዶ ሕክምና", "Doktara 8 · Baqaqsanii yaaluu"], "Doctor 9 · Surgery": ["ዶክተር 9 · ቀዶ ሕክምና", "Doktara 9 · Baqaqsanii yaaluu"], "Doctor 10 · Pediatrics": ["ዶክተር 10 · የሕፃናት ሕክምና", "Doktara 10 · Daa’immanii"], "Doctor 11 · Pediatrics": ["ዶክተር 11 · የሕፃናት ሕክምና", "Doktara 11 · Daa’immanii"], "Doctor 12 · Maternity and Delivery": ["ዶክተር 12 · የእናቶችና የወሊድ አገልግሎት", "Doktara 12 · Da’umsa fi Dhaloota"], "Doctor 13 · Maternity and Delivery": ["ዶክተር 13 · የእናቶችና የወሊድ አገልግሎት", "Doktara 13 · Da’umsa fi Dhaloota"], "Doctor 14 · Obstetrics and Gynecology": ["ዶክተር 14 · የጽንስና ማህፀን ሕክምና", "Doktara 14 · Da’umsaa fi Dhukkuba Dubartootaa"], "Doctor 15 · Obstetrics and Gynecology": ["ዶክተር 15 · የጽንስና ማህፀን ሕክምና", "Doktara 15 · Da’umsaa fi Dhukkuba Dubartootaa"], "Doctor 16 · Inpatient care": ["ዶክተር 16 · የተኝቶ ሕክምና እንክብካቤ", "Doktara 16 · Kunuunsa dhukkubsattoota ciisanii"], "Doctor 17 · Dental and Maxillofacial": ["ዶክተር 17 · የጥርስና የፊት መንጋጋ ሕክምና", "Doktara 17 · Ilkaanii fi Fuulaa-Gaaffaa"], "Doctor 18 · Dental and Maxillofacial": ["ዶክተር 18 · የጥርስና የፊት መንጋጋ ሕክምና", "Doktara 18 · Ilkaanii fi Fuulaa-Gaaffaa"], "Doctor 19 · Dermatology": ["ዶክተር 19 · የቆዳ ሕክምና", "Doktara 19 · Dhukkuba Gogaa"], "Doctor 20 · ENT": ["ዶክተር 20 · የጆሮ፣ አፍንጫና ጉሮሮ", "Doktara 20 · Gurra, Funyaan fi Qoonqoo"], "Doctor 21 · Orthopedics": ["ዶክተር 21 · የአጥንት ሕክምና", "Doktara 21 · Dhukkuba Lafee"], "Doctor 22 · Orthopedics": ["ዶክተር 22 · የአጥንት ሕክምና", "Doktara 22 · Dhukkuba Lafee"], "Doctor 23 · Ophthalmology": ["ዶክተር 23 · የዓይን ሕክምና", "Doktara 23 · Dhukkuba Ijaa"], "Doctor 24 · Physiotherapy and Rehabilitation": ["ዶክተር 24 · ፊዚዮቴራፒና ተሃድሶ", "Doktara 24 · Fiiziyooterapii fi Deebi’ee Fayyisuu"], "Doctor 25 · Radiology and 4D ultrasound": ["ዶክተር 25 · ራዲዮሎጂና 4D አልትራሳውንድ", "Doktara 25 · Radiyooloojii fi ultraasaawundii 4D"], "Doctor 26 · Radiology and 4D ultrasound": ["ዶክተር 26 · ራዲዮሎጂና 4D አልትራሳውንድ", "Doktara 26 · Radiyooloojii fi ultraasaawundii 4D"], "Doctor 27 · Laboratory and Pathology": ["ዶክተር 27 · ላቦራቶሪና ፓቶሎጂ", "Doktara 27 · Laaboraatorii fi Paatooloojii"], "Doctor 28 · Laboratory and Pathology": ["ዶክተር 28 · ላቦራቶሪና ፓቶሎጂ", "Doktara 28 · Laaboraatorii fi Paatooloojii"], "Doctor 29 · Internal medicine": ["ዶክተር 29 · የውስጥ ደዌ ሕክምና", "Doktara 29 · Meediisiinii keessaa"], "Doctor 30 · Emergency": ["ዶክተር 30 · ድንገተኛ", "Doktara 30 · Ariifachiisaa"], "Doctor 31 · Pharmacy": ["ዶክተር 31 · ፋርማሲ", "Doktara 31 · Faarmaasii"], "Doctor 32 · Internal medicine": ["ዶክተር 32 · የውስጥ ደዌ ሕክምና", "Doktara 32 · Meediisiinii keessaa"], "Dr. Fikru · Emergency": ["ዶ/ር ፍቅሩ · ድንገተኛ", "Dr. Fikruu · Ariifachiisaa"], "Dr. Samuel · Internal medicine": ["ዶ/ር ሳሙኤል · የውስጥ ደዌ ሕክምና", "Dr. Saamu’eel · Meediisiinii keessaa"], "No doctors found in this department yet.": ["በዚህ ክፍል እስካሁን ሐኪም አልተገኘም።", "Kutaa kana keessatti ammaaf doktora hin argamne."], "Health Packages and Offers": ["የጤና ፓኬጆችና ቅናሾች", "Paakeejiiwwan Fayyaa fi Dhiyeessii Addaa"], "Search packages": ["ፓኬጅ ይፈልጉ", "Paakeejii barbaadaa"], "Search packages, e.g. heart, child, maternity": ["ፓኬጅ ይፈልጉ፣ ለምሳሌ ልብ፣ ሕፃን፣ ወሊድ", "Paakeejii barbaadaa, fkn onnee, daa’ima, da’umsa"], "Card": ["ካርድ", "Kaardii"], "Get your patient card once for faster registration and easy follow-up visits.": ["ለፈጣን ምዝገባና ለቀላል ተከታታይ ጉብኝት የታካሚ ካርድዎን አንድ ጊዜ ያውጡ።", "Kaardii dhukkubsataa al tokko argadhaa; galmeessuu saffisaa fi daawwannaa hordoffii salphaa argachuuf."], "ETB 1,000": ["ብር 1,000", "Birrii 1,000"], "ETB 300": ["ብር 300", "Birrii 300"], "You save ETB 700": ["ብር 700 ይቆጥባሉ", "Birrii 700 qusattu"], "ETB ____": ["ብር ____", "Birrii ____"], "Book this package": ["ይህን ፓኬጅ ያስይዙ", "Paakeejii kana qabadhaa"], "Basic Checkup": ["መሠረታዊ የጤና ምርመራ", "Sakatta’iinsa Bu’uuraa"], "Consultation, blood pressure, blood sugar, CBC.": ["ምክክር፣ የደም ግፊት፣ የደም ስኳር፣ ሙሉ የደም ምርመራ (CBC)።", "Mari’annoo, dhiibbaa dhiigaa, sukkaara dhiigaa, CBC."], "Executive Checkup": ["ሙሉ የጤና ምርመራ", "Sakatta’iinsa Fayyaa Guutuu"], "Full blood panel, urine, ECG, ultrasound, doctor review.": ["ሙሉ የደም ምርመራ፣ የሽንት ምርመራ፣ ECG፣ አልትራሳውንድ፣ የሐኪም ግምገማ።", "Qorannoo dhiigaa guutuu, fincaanii, ECG, ultraasaawundii fi ilaalcha doktoraa."], "Maternity Package": ["የወሊድ ፓኬጅ", "Paakeejii Da’umsaa"], "Antenatal visits, labs, ultrasound, delivery plan.": ["የቅድመ ወሊድ ጉብኝቶች፣ የላብ ምርመራዎች፣ አልትራሳውንድ፣ የወሊድ ዕቅድ።", "Daawwannaa dura da’umsaa, qorannoo laaboraatorii, ultraasaawundii, karoora da’umsaa."], "First-visit offer": ["የመጀመሪያ ጉብኝት ቅናሽ", "Dhiyeessii daawwannaa jalqabaa"], "New patients: discount on your first consultation. Refer a friend and both save.": ["አዲስ ታካሚዎች፦ በመጀመሪያ ምክክር ቅናሽ። ጓደኛ ይጋብዙ፤ ሁለታችሁም ትቆጥባላችሁ።", "Dhukkubsattoota haaraaf: mari’annoo jalqabaa irratti hir’inni ni jira. Hiriyaa waamaa, lamaan keessan ni qusattu."], "Ask us": ["ይጠይቁን", "Nu gaafadhaa"], "Child Wellness Package": ["የሕፃናት ጤና ፓኬጅ", "Paakeejii Fayyaa Daa’immanii"], "Growth and development check, vaccination review, eye and hearing screen, pediatrician consultation.": ["የዕድገትና የልማት ምርመራ፣ የክትባት ግምገማ፣ የዓይንና የመስማት ምርመራ፣ የሕፃናት ሐኪም ምክክር።", "Sakatta’iinsa guddinaa fi misoomaa, ilaalcha talaallii, qorannoo ijaa fi dhaga’uu, mari’annoo ogeessa daa’immanii."], "Diabetes Care Package": ["የስኳር በሽታ እንክብካቤ ፓኬጅ", "Paakeejii Kunuunsa Dhukkuba Sukkaaraa"], "Blood sugar profile, HbA1c, kidney and lipid tests, foot and eye check, diet advice.": ["የደም ስኳር ምርመራ፣ HbA1c፣ የኩላሊትና የደም ስብ ምርመራዎች፣ የእግርና የዓይን ምርመራ፣ የአመጋገብ ምክር።", "Qorannoo sukkaara dhiigaa, HbA1c, qorannoo kalee fi coomaa dhiigaa, sakatta’iinsa miilaa fi ijaa, gorsa nyaataa."], "Heart Health Package": ["የልብ ጤና ፓኬጅ", "Paakeejii Fayyaa Onnee"], "Blood pressure, cholesterol profile, ECG, cardiac risk review and doctor consultation.": ["የደም ግፊት፣ የኮሌስትሮል ምርመራ፣ ECG፣ የልብ በሽታ ተጋላጭነት ግምገማና የሐኪም ምክክር።", "Dhiibbaa dhiigaa, qorannoo koolesteroolii, ECG, ilaalcha balaa dhukkuba onnee fi mari’annoo doktoraa."], "Offer": ["ቅናሽ", "Dhiyeessii"], "Family Offer": ["የቤተሰብ ቅናሽ", "Dhiyeessii Maatii"], "Two or more family members checked in the same visit save on consultation and lab fees.": ["ሁለት ወይም ከዚያ በላይ የቤተሰብ አባላት በአንድ ጉብኝት ሲመረመሩ በምክክርና በላብ ክፍያ ይቆጥባሉ።", "Miseensonni maatii lama ykn isaa ol daawwannaa tokkoon yoo qoratamanitti kaffaltii mari’annoo fi laaboraatorii irratti ni qusatu."], "No packages match your search. Ask reception about custom packages.": ["ከፍለጋዎ ጋር የሚመሳሰል ፓኬጅ የለም። ስለ ልዩ ፓኬጆች መቀበያውን ይጠይቁ።", "Paakeejiin barbaaddan hin argamne. Waa’ee paakeejii addaa simannaa gaafadhaa."], "Years of service": ["የአገልግሎት ዓመታት", "Waggaa tajaajilaa"], "Specialists": ["ስፔሻሊስቶች", "Ogeeyyii"], "Patients served": ["የተገለገሉ ታካሚዎች", "Dhukkubsattoota tajaajilaman"], "What Patients Say": ["ታካሚዎች ምን ይላሉ", "Dhukkubsattoonni Maal Jedhu"], "“The staff were kind and explained everything clearly. I felt cared for.”": ["“ሠራተኞቹ ደግ ነበሩ፤ ሁሉንም በግልጽ አብራሩልኝ። እንክብካቤ እንደተደረገልኝ ተሰማኝ።”", "“Hojjettoonni gaarii turan, wanta hunda ifatti naaf ibsan. Kunuunsi akka naaf godhame natti dhaga’ame.”"], "Patient name, Sululta": ["የታካሚ ስም፣ ሱሉልታ", "Maqaa dhukkubsataa, Sulultaa"], "Patient name, Addis Ababa": ["የታካሚ ስም፣ አዲስ አበባ", "Maqaa dhukkubsataa, Finfinnee"], "Patient name, Mizankinbre": ["የታካሚ ስም፣ ሚዛን ቅንብሬ", "Maqaa dhukkubsataa, Mizaan Kinbire"], "“Booking was easy and the reception called me the same day.”": ["“ቀጠሮ መያዝ ቀላል ነበር፤ መቀበያውም በዚያው ቀን ደወለልኝ።”", "“Beellama qabachuun salphaa ture, simannaanis guyyaa sana naa waame.”"], "“The ambulance arrived fast and the emergency team was excellent.”": ["“አምቡላንሱ በፍጥነት ደረሰ፤ የድንገተኛ ቡድኑም እጅግ በጣም ጥሩ ነበር።”", "“Ambulaansiin saffisaan dhufe, gareen ariifachiisaas baay’ee gaarii ture.”"], "Book an Appointment": ["ቀጠሮ ይያዙ", "Beellama Qabadhaa"], "In an emergency, call": ["በድንገተኛ ጊዜ ይደውሉ", "Yeroo ariifachiisaa waamaa"], "immediately. Do not wait for an online reply.": ["ወዲያውኑ። የኦንላይን ምላሽ አይጠብቁ።", "battalumatti. Deebii toora interneetii hin eegaatinaa."], "Department or doctor": ["ክፍል ወይም ሐኪም", "Kutaa ykn doktora"], "General Consultation": ["ጠቅላላ ምክክር", "Mari’annoo Waliigalaa"], "Health Package": ["የጤና ፓኬጅ", "Paakeejii Fayyaa"], "Teleconsultation request": ["የቴሌ ምክክር ጥያቄ", "Gaaffii mari’annoo teelee"], "Callback request": ["መልሶ እንዲደውሉልኝ ጥያቄ", "Gaaffii deebi’anii bilbiluu"], "Preferred date": ["የሚመርጡት ቀን", "Guyyaa filattan"], "Preferred time": ["የሚመርጡት ሰዓት", "Yeroo filattan"], "Morning (2:00–6:00)": ["ጠዋት (2:00–6:00)", "Ganama (2:00–6:00)"], "Afternoon (8:00–11:00)": ["ከሰዓት (8:00–11:00)", "Waaree booda (8:00–11:00)"], "Evening (12:00–6:00)": ["ምሽት (12:00–6:00)", "Galgala (12:00–6:00)"], "Full name": ["ሙሉ ስም", "Maqaa guutuu"], "Phone number": ["ስልክ ቁጥር", "Lakkoofsa bilbilaa"], "Reason for visit": ["የጉብኝት ምክንያት", "Sababa daawwannaa"], "I am a new patient": ["አዲስ ታካሚ ነኝ", "Dhukkubsataa haaraa dha"], "Insurance (optional)": ["ኢንሹራንስ (አማራጭ)", "Inshuraansii (kan filatamu)"], "Insurance company / ID": ["የኢንሹራንስ ድርጅት / መታወቂያ ቁጥር", "Dhaabbata inshuraansii / lakkoofsa eenyummaa"], "Back": ["ተመለስ", "Duubatti"], "Next": ["ቀጣይ", "Itti aanu"], "Send request": ["ጥያቄ ላክ", "Gaaffii ergi"], "Insurance, Payment and Accreditation": ["ኢንሹራንስ፣ ክፍያና እውቅና", "Inshuraansii, Kaffaltii fi Beekamtii"], "Ministry of Health license": ["የጤና ሚኒስቴር ፈቃድ", "Hayyama Ministeera Fayyaa"], "Insurance partner 1": ["የኢንሹራንስ አጋር 1", "Hiriyaa inshuraansii 1"], "Insurance partner 2": ["የኢንሹራንስ አጋር 2", "Hiriyaa inshuraansii 2"], "Insurance partner 3": ["የኢንሹራንስ አጋር 3", "Hiriyaa inshuraansii 3"], "Community-based health insurance": ["የማኅበረሰብ አቀፍ ጤና መድን", "Inshuraansii fayyaa hawaasaa"], "Cash": ["ጥሬ ገንዘብ", "Maallaqa harkaa"], "Telebirr/CBE Birr": ["ቴሌብር/ሲቢኢ ብር", "Telebirr/CBE Birr"], "Telebirr / CBE Birr": ["ቴሌብር / ሲቢኢ ብር", "Telebirr / CBE Birr"], "Bank transfer": ["የባንክ ዝውውር", "Dabarsa baankii"], "Patient Guide for New Patients": ["ለአዲስ ታካሚዎች መመሪያ", "Qajeelfama Dhukkubsattoota Haaraaf"], "What to bring": ["ምን ይዘው መምጣት አለብዎት", "Wanta fidduu qabdan"], "ID card, Credit Organization Card/Letter, insurance card, previous medical papers and a list of your medicines.": ["መታወቂያ፣ የድርጅት ክሬዲት ካርድ/ደብዳቤ፣ የኢንሹራንስ ካርድ፣ ቀደም ያሉ የሕክምና ወረቀቶችና የሚወስዷቸው መድኃኒቶች ዝርዝር።", "Waraqaa eenyummaa, kaardii/xalayaa kireediitii dhaabbataa, kaardii inshuraansii, waraqaa yaalaa duraanii fi tarreeffama qoricha fudhattan."], "How your first visit works": ["የመጀመሪያ ጉብኝትዎ እንዴት ይካሄዳል", "Daawwannaan keessan jalqabaa akkamitti adeema"], "Register at reception, see the nurse for basic checks on Triage, pay at casier, then meet your doctor.": ["በመቀበያ ይመዝገቡ፣ በትሪያጅ ለመሠረታዊ ምርመራ ነርሷን ያግኙ፣ በገንዘብ ተቀባይ ይክፈሉ፣ ከዚያ ሐኪምዎን ይገናኙ።", "Simannaatti galmaa’aa, Triiyaajiitti sakatta’iinsa bu’uuraaf narsii argadhaa, kaffaltuu bira kaffalaa, itti aansuun doktora keessan argadhaa."], "Payment": ["ክፍያ", "Kaffaltii"], "Pay at the cashier before tests or medicines. Credit aorganization and Insurance is accepted for partners.": ["ከምርመራ ወይም ከመድኃኒት በፊት በገንዘብ ተቀባይ ይክፈሉ። የአጋር ድርጅቶች ክሬዲትና ኢንሹራንስ ተቀባይነት አለው።", "Qorannoo ykn qoricha dura kaffaltuu bira kaffalaa. Kireediitiin dhaabbataa fi inshuraansiin hiriyoota irratti ni fudhatama."], "Arrive early": ["ቀደም ብለው ይምጡ", "Dafaa dhufaa"], "Come 15 minutes before your appointment for registration.": ["ለምዝገባ ከቀጠሮዎ 15 ደቂቃ በፊት ይምጡ።", "Galmeef beellama keessaniin daqiiqaa 15 dura dhufaa."], "Gallery and Virtual Tour": ["ማዕከለ ሥዕልና ምናባዊ ጉብኝት", "Suuraalee fi Daawwannaa Vaarchuwaalii"], "Nile Century Hospital photo album · 6 photos and 1 video. Click any photo to view it larger.": ["የናይል ሴንቸሪ ሆስፒታል የፎቶ አልበም · 6 ፎቶዎችና 1 ቪዲዮ። ለማየት ማንኛውንም ፎቶ ይጫኑ።", "Albaama suuraa Hospitaala Nile Century · suuraa 6 fi viidiyoo 1. Suuraa kamiyyuu guddisanii ilaaluuf tuqaa."], "Video not found. Put video.mp4 in the images folder.": ["ቪዲዮው አልተገኘም። video.mp4 ን በimages አቃፊ ውስጥ ያስቀምጡ።", "Viidiyoon hin argamne. video.mp4 fooldara images keessa kaa’aa."], "Frequently Asked Questions": ["በተደጋጋሚ የሚጠየቁ ጥያቄዎች", "Gaaffilee Irra Deddeebi’anii Gaafataman"], "How do I book an appointment?": ["ቀጠሮ እንዴት መያዝ እችላለሁ?", "Beellama akkamitti qabadha?"], "Use the booking form. Reception will call you to confirm.": ["የቀጠሮ ቅጹን ይጠቀሙ። መቀበያው ለማረጋገጥ ይደውልልዎታል።", "Foormii beellamaa fayyadamaa. Simannaan mirkaneessuuf isin waamu."], "Do you accept insurance?": ["ኢንሹራንስ ትቀበላላችሁ?", "Inshuraansii ni fudhattuu?"], "Yes, for our partner insurers. Call 0111864871 to check yours.": ["አዎ፣ ከአጋር ኢንሹራንሶቻችን ጋር። የእርስዎን ለማረጋገጥ 0111864871 ይደውሉ።", "Eeyyee, dhaabbilee inshuraansii hiriyoota keenyaaf. Kan keessan mirkaneessuuf 0111864871 waamaa."], "Is the emergency open at night?": ["ድንገተኛ ክፍሉ በሌሊት ክፍት ነው?", "Ariifachiisaan halkan banaadhaa?"], "Yes, 24/7. Ambulance: 0998111114/15.": ["አዎ፣ 24/7 ክፍት ነው። አምቡላንስ፦ 0998111114/15።", "Eeyyee, sa’aatii 24. Ambulaansii: 0998111114/15."], "Can I see a doctor online?": ["ሐኪምን በኦንላይን ማየት እችላለሁ?", "Doktora toora interneetiin argachuu nan danda’aa?"], "Choose \"Teleconsultation request\" in the form and we will arrange it.": ["በቅጹ ውስጥ “የቴሌ ምክክር ጥያቄ” ይምረጡ፤ እኛ እናመቻቻለን።", "Foormii keessatti “Gaaffii mari’annoo teelee” filadhaa, nuti qopheessina."], "Careers": ["የሥራ ዕድሎች", "Carraa Hojii"], "Join a caring team. Send your CV to careers nilecenturyhospital@gmail.com": ["ርኅሩኅ ቡድንን ይቀላቀሉ። የሥራ ልምድዎን (CV) ወደ careers nilecenturyhospital@gmail.com ይላኩ።", "Gareen gara laafinaan guutame makamaa. CV keessan careers nilecenturyhospital@gmail.com’tti ergaa."], "Privacy Policy and Terms": ["የግላዊነት ፖሊሲና ደንቦች", "Imaammata Dhuunfaa fi Haalawwan"], "This website only collects the name, phone and visit details you enter to arrange your appointment. We never publish them and this site holds no medical records.": ["ይህ ድረ ገጽ ቀጠሮዎን ለማመቻቸት የሚያስገቡትን ስም፣ ስልክና የጉብኝት ዝርዝር ብቻ ይሰበስባል። በፍጹም አናሳትማቸውም፤ ይህ ድረ ገጽ የሕክምና መዝገብም አይይዝም።", "Marsariitiin kun maqaa, bilbila fi bal’ina daawwannaa beellama keessan qopheessuuf galchitan qofa walitti qaba. Gonkumaa hin maxxansinu; marsariitiin kun galmee yaalaas hin qabu."], "News and Health Tips": ["ዜናና የጤና ምክሮች", "Oduu fi Gorsa Fayyaa"], "Free screening day": ["ነፃ የምርመራ ቀን", "Guyyaa sakatta’iinsa bilisaa"], "Join our community blood pressure and sugar screening. Date to be announced.": ["በማኅበረሰብ የደም ግፊትና የስኳር ምርመራ ይሳተፉ። ቀኑ ይገለጻል።", "Sakatta’iinsa dhiibbaa dhiigaa fi sukkaara hawaasaa irratti hirmaadhaa. Guyyaan ni beeksifama."], "Caring for your child in the rainy season": ["በክረምት ወቅት ልጅዎን መንከባከብ", "Yeroo gannaa ijoollee keessan kunuunsuu"], "Simple steps to prevent common childhood illnesses.": ["የተለመዱ የልጅነት በሽታዎችን ለመከላከል ቀላል ደረጃዎች።", "Tarkaanfiiwwan salphaa dhukkuboota daa’imummaa baratamoo ittisuuf."], "Why antenatal visits matter": ["የቅድመ ወሊድ ጉብኝቶች ለምን አስፈላጊ ናቸው", "Maaliif daawwannaan dura da’umsaa barbaachisaa dha"], "What to expect at each stage of pregnancy.": ["በእያንዳንዱ የእርግዝና ደረጃ ምን እንደሚጠበቅ።", "Wanti ulfaa’umsa tarkaanfii hundatti eegamu."], "Our Address": ["አድራሻችን", "Teessoo Keenya"], "We'd love to see you. Whether it's a scheduled visit or an emergency, here's every way to find us and reach us, day or night.": ["እርስዎን ማየት እንወዳለን። ለቀጠሮ ጉብኝትም ሆነ ለድንገተኛ ሁኔታ፣ ቀንም ሆነ ሌሊት እኛን ማግኘትና መድረስ የሚችሉባቸው መንገዶች እነሆ።", "Isin arguu jaallanna. Daawwannaa beellamaa ta’ee ykn ariifachiisaa, halkanii fi guyyaa karaa nu ittiin argattanii fi nu qunnamtan hundi kunoo."], "Sheger City, Mana Abichu Sub-city": ["ሸገር ከተማ፣ ማና አቢቹ ክፍለ ከተማ", "Magaalaa Sheegar, Aanaa Mana Abichuu"], "On the road from Sululta to Addis Ababa (Mizan-Qinbire)": ["ከሱሉልታ ወደ አዲስ አበባ በሚወስደው መንገድ ላይ (ሚዛን ቅንብሬ)", "Daandii Sulultaa irraa gara Finfinneetti geessu irra (Mizaan Kinbire)"], "Email": ["ኢሜይል", "Imeelii"], "nilecenturyhospital@gmail.com": ["nilecenturyhospital@gmail.com", "nilecenturyhospital@gmail.com"], "Phone": ["ስልክ", "Bilbila"], "Ambulance": ["አምቡላንስ", "Ambulaansii"], "Hours": ["የሥራ ሰዓት", "Sa’aatii Hojii"], "Emergency: 24/7": ["ድንገተኛ፦ 24/7", "Ariifachiisaa: 24/7"], "Outpatient: Mon-Sat, 8:00-20:00": ["የተመላላሽ፦ ሰኞ–ቅዳሜ፣ 8:00–20:00", "Daawwatamaa: Wiixata–Sanbata, 8:00–20:00"], "(edit)": ["(ያርሙ)", "(gulaali)"], "Get directions": ["አቅጣጫ ያግኙ", "Qajeelfama argadhaa"], "Sululta - Mizan-Qinbire road": ["ሱሉልታ - ሚዛን ቅንብሬ መንገድ", "Daandii Sulultaa - Mizaan Kinbire"], "Follow Us": ["ይከተሉን", "Nu Hordofaa"], "Health tips, news and updates from Nile Century Hospital.": ["የጤና ምክሮች፣ ዜናዎችና ዝማኔዎች ከናይል ሴንቸሪ ሆስፒታል።", "Gorsa fayyaa, oduu fi odeeffannoo haaraa Hospitaala Nile Century irraa."], "Follow us": ["ይከተሉን", "Nu hordofaa"], "Facebook": ["ፌስቡክ", "Faasbuukii"], "Facebook: follow us for the screening date": ["ፌስቡክ፦ የምርመራውን ቀን ለማወቅ ይከተሉን", "Faasbuukii: guyyaa sakatta’iinsaa beekuuf nu hordofaa"], "Instagram": ["ኢንስታግራም", "Instaagiraamii"], "Instagram: follow us for the screening date": ["ኢንስታግራም፦ የምርመራውን ቀን ለማወቅ ይከተሉን", "Instaagiraamii: guyyaa sakatta’iinsaa beekuuf nu hordofaa"], "Telegram": ["ቴሌግራም", "Teleegiraamii"], "Telegram: follow us for the screening date": ["ቴሌግራም፦ የምርመራውን ቀን ለማወቅ ይከተሉን", "Teleegiraamii: guyyaa sakatta’iinsaa beekuuf nu hordofaa"], "TikTok": ["ቲክቶክ", "Tiktookii"], "TikTok: follow us for the screening date": ["ቲክቶክ፦ የምርመራውን ቀን ለማወቅ ይከተሉን", "Tiktookii: guyyaa sakatta’iinsaa beekuuf nu hordofaa"], "Quick links": ["ፈጣን አገናኞች", "Hidhata saffisaa"], "Health Packages": ["የጤና ፓኬጆች", "Paakeejiiwwan Fayyaa"], "FAQ": ["ተደጋጋሚ ጥያቄዎች", "Gaaffilee Baratamoo"], "Gallery": ["ማዕከለ ሥዕል", "Suuraalee"], "Privacy Policy · Terms": ["የግላዊነት ፖሊሲ · ደንቦች", "Imaammata Dhuunfaa · Haalawwan"], "Newsletter": ["የዜና ደብዳቤ", "Ergaa Oduu"], "Phone or email": ["ስልክ ወይም ኢሜይል", "Bilbila ykn imeelii"], "Subscribe": ["ይመዝገቡ", "Galmaa’aa"], "© 2026 Nile Century Hospital": ["© 2026 ናይል ሴንቸሪ ሆስፒታል", "© 2026 Hospitaala Nile Century"], "Call": ["ይደውሉ", "Waami"], "📞 Call": ["📞 ይደውሉ", "📞 Waami"], "📅 Book Now": ["📅 አሁን ይያዙ", "📅 Amma Qabadhaa"], "Hospital photos and video": ["የሆስፒታል ፎቶዎችና ቪዲዮ", "Suuraalee fi viidiyoo hospitaalaa"], "Hospital video": ["የሆስፒታል ቪዲዮ", "Viidiyoo hospitaalaa"], "Turn sound on or off": ["ድምፅ አብራ ወይም አጥፋ", "Sagalee banuu ykn cufuu"], "Previous slide": ["ቀዳሚ ስላይድ", "Slaayidii duraa"], "Next slide": ["ቀጣይ ስላይድ", "Slaayidii itti aanu"], "Photo viewer": ["የፎቶ ማሳያ", "Agarsiistuu suuraa"], "Close": ["ዝጋ", "Cufi"], "Previous photo": ["ቀዳሚ ፎቶ", "Suuraa duraa"], "Next photo": ["ቀጣይ ፎቶ", "Suuraa itti aanu"], "Nile Century Hospital photo": ["የናይል ሴንቸሪ ሆስፒታል ፎቶ", "Suuraa Hospitaala Nile Century"], "Play": ["አጫውት", "Taphachiisi"], "Seek": ["አሸጋግር", "Gara filatamee dabarsi"], "Other": ["ሌላ", "Kan biraa"], "Mute": ["ድምፅ አጥፋ", "Sagalee cufi"], "Open directions to Nile Century Hospital on Google Maps": ["ወደ ናይል ሴንቸሪ ሆስፒታል የሚወስድ አቅጣጫ በጉግል ካርታ ክፈት", "Qajeelfama Hospitaala Nile Century Google Maps irratti bani"], "Open photo 1 of 7": ["ፎቶ 1 ከ7 ክፈት", "Suuraa 1 kan 7 keessaa bani"], "Open photo 2 of 7": ["ፎቶ 2 ከ7 ክፈት", "Suuraa 2 kan 7 keessaa bani"], "Open photo 3 of 7": ["ፎቶ 3 ከ7 ክፈት", "Suuraa 3 kan 7 keessaa bani"], "Open photo 4 of 7": ["ፎቶ 4 ከ7 ክፈት", "Suuraa 4 kan 7 keessaa bani"], "Open photo 5 of 7": ["ፎቶ 5 ከ7 ክፈት", "Suuraa 5 kan 7 keessaa bani"], "Open photo 6 of 7": ["ፎቶ 6 ከ7 ክፈት", "Suuraa 6 kan 7 keessaa bani"], "Open photo 7 of 7": ["ፎቶ 7 ከ7 ክፈት", "Suuraa 7 kan 7 keessaa bani"], "Play video, item 7 of 7": ["ቪዲዮ አጫውት፣ ንጥል 7 ከ7", "Viidiyoo taphachiisi, 7 kan 7 keessaa"]},Y={"Next": ["ቀጣይ", "Itti aanu"], "Send request": ["ጥያቄ ላክ", "Gaaffii ergi"], "Please choose a date.": ["እባክዎ ቀን ይምረጡ።", "Maaloo guyyaa filadhaa."], "Please enter your name and a valid phone number.": ["እባክዎ ስምዎንና ትክክለኛ ስልክ ቁጥር ያስገቡ።", "Maaloo maqaa fi lakkoofsa bilbilaa sirrii galchaa."], "Request received": ["ጥያቄዎ ደርሶናል", "Gaaffiin keessan nu qaqqabeera"], "Thank you, {name}. Our reception will call you on {phone} to confirm your {dept} visit on {date}.": ["እናመሰግናለን፣ {name}። የመቀበያ ክፍላችን የ{dept} ጉብኝትዎን በ{date} ለማረጋገጥ በ{phone} ይደውልልዎታል።", "Galatoomaa, {name}. Simannaan keenya daawwannaa {dept} keessanii guyyaa {date} mirkaneessuuf {phone} irratti isin waamu."], "Showing {n} of {m} doctors": ["ከ{m} ሐኪሞች {n} እየታዩ ነው", "Doktoota {m} keessaa {n} agarsiisaa jira"], "{n} service found": ["{n} አገልግሎት ተገኝቷል", "Tajaajilli {n} argameera"], "{n} services found": ["{n} አገልግሎቶች ተገኝተዋል", "Tajaajiloonni {n} argamaniiru"], "{n} package found": ["{n} ፓኬጅ ተገኝቷል", "Paakeejiin {n} argameera"], "{n} packages found": ["{n} ፓኬጆች ተገኝተዋል", "Paakeejiiwwan {n} argamaniiru"], "Subscribed ✓": ["ተመዝግበዋል ✓", "Galmaa’ameera ✓"], "Subscribe": ["ይመዝገቡ", "Galmaa’aa"], "🔇 Sound off": ["🔇 ድምፅ ጠፍቷል", "🔇 Sagaleen cufameera"], "🔊 Sound on": ["🔊 ድምፅ በርቷል", "🔊 Sagaleen banameera"]};
+        var IDX={am:0,om:1},cur='en',KEY='ncLang';
+        function nk(s){return s.replace(/\s+/g,' ').trim()}
+        function has(o,k){return Object.prototype.hasOwnProperty.call(o,k)}
+        window.curLang=function(){return cur};
+        window.tr=function(k,v){
+          var d=(cur!=='en'&&has(Y,k))?Y[k][IDX[cur]]:null,t=d||k;
+          if(v)for(var x in v)t=t.split('{'+x+'}').join(v[x]);
+          return t
+        };
+        /* options keep their English value so filters and booking keep working */
+        document.querySelectorAll('option').forEach(function(o){
+          if(!o.hasAttribute('value'))o.setAttribute('value',o.textContent)
+        });
+        var ATTR=['placeholder','aria-label','title','alt','label'];
+        function apply(lang){
+          cur=lang;
+          document.documentElement.lang=lang;
+          var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+            var p=n.parentNode;
+            if(!p||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+            var t=p.nodeName;
+            if(t==='SCRIPT'||t==='STYLE'||t==='NOSCRIPT')return NodeFilter.FILTER_REJECT;
+            if(p.closest&&p.closest('[data-nt]'))return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT
+          }});
+          var n;
+          while(n=w.nextNode()){
+            if(n._o===undefined)n._o=n.nodeValue;
+            var o=n._o;
+            if(lang==='en'){n.nodeValue=o;continue}
+            var k=nk(o);
+            if(has(D,k)){
+              var t=D[k][IDX[lang]];
+              if(t)n.nodeValue=o.match(/^\s*/)[0]+t+o.match(/\s*$/)[0]
+            }
+          }
+          document.querySelectorAll('[placeholder],[aria-label],[title],[alt],[label]').forEach(function(e){
+            ATTR.forEach(function(a){
+              if(!e.hasAttribute(a))return;
+              e._oa=e._oa||{};
+              if(e._oa[a]===undefined)e._oa[a]=e.getAttribute(a);
+              var k=nk(e._oa[a]);
+              e.setAttribute(a,(lang!=='en'&&has(D,k)&&D[k][IDX[lang]])?D[k][IDX[lang]]:e._oa[a])
+            })
+          });
+          document.dispatchEvent(new Event('langchange'))
+        }
+        var sel=document.getElementById('lang');
+        sel.onchange=function(){
+          apply(this.value);
+          try{localStorage.setItem(KEY,this.value)}catch(e){}
+        };
+        var sv='en';
+        try{sv=localStorage.getItem(KEY)||'en'}catch(e){}
+        if(has(IDX,sv)){sel.value=sv;apply(sv)}else{sel.value='en'}
+      })();
+      var s=0,fs=document.querySelectorAll('.fs'),sp=document.querySelectorAll('.stp span'),$=function(i){
+        return document.getElementById(i)
+      }
+      ;
+      $('dt').min=new Date().toISOString().slice(0,10);
+      function pick(v){
+        $('dp').value=v
+      }
+      function show(){
+        fs.forEach(function(e,i){
+          e.classList.toggle('on',i==s)
+        }
+        );
+        sp.forEach(function(e,i){
+          e.classList.toggle('on',i<=s)
+        }
+        );
+        $('bk').style.visibility=s?'visible':'hidden';
+        $('nx').textContent=tr(s==2?'Send request':'Next')
+      }
+      function fillOk(){
+        var o=$('ok'),v=window.okv;
+        if(!v)return;
+        var dn=v.dept;
+        [].forEach.call($('dp').options,function(x){if(x.value===v.dept)dn=x.text});
+        o.innerHTML='<div style="font-size:2.5rem">✅</div><h3></h3><p></p>';
+        o.querySelector('h3').textContent=tr('Request received');
+        o.querySelector('p').textContent=tr('Thank you, {name}. Our reception will call you on {phone} to confirm your {dept} visit on {date}.',{name:v.name,phone:v.phone,dept:dn,date:v.date})
+      }
+      document.addEventListener('langchange',function(){show();if($('ok').dataset.s)fillOk()});
+      show();
+      $('bk').onclick=function(){
+        s--;
+        show()
+      }
+      ;
+      $('nx').onclick=function(){
+        if(s==1&&!$('dt').value){
+          alert(tr('Please choose a date.'));
+          return
+        }
+        if(s==2){
+          if(!$('nm').value.trim()||$('ph').value.trim().length<7){
+            alert(tr('Please enter your name and a valid phone number.'));
+            return
+          }
+          fs.forEach(function(e){
+            e.classList.remove('on')
+          }
+          );
+          document.querySelector('.nv').style.display='none';
+          document.querySelector('.stp').style.display='none';
+          var o=$('ok');
+          o.style.display='block';
+          window.okv={name:$('nm').value,phone:$('ph').value,dept:$('dp').value,date:$('dt').value};
+          o.dataset.s=1;
+          fillOk();
+          return
+        }
+        s++;
+        show()
+      }
+      ;
+      
+      var PG={
+        about:1,trust:'about',services:1,doctors:1,packages:1,book:1,news:1,contact:1,guide:1,gallery:1,faq:1,careers:1,privacy:1
+      }
+      ;
+      document.querySelectorAll('section[id]').forEach(function(e){
+        if(PG[e.id])e.dataset.p=PG[e.id]===1?e.id:PG[e.id]
+      }
+      );
+      function route(){
+        var h=(location.hash||'#home').slice(1);
+        if(!document.querySelector('[data-p="'+h+'"]'))h='home';
+        document.querySelectorAll('[data-p]').forEach(function(e){
+          e.style.display=e.dataset.p==h?'':'none'
+        }
+        );
+        document.querySelectorAll('nav a').forEach(function(a){
+          a.classList.toggle('on',a.getAttribute('href')=='#'+h)
+        }
+        );
+        $('nv').classList.remove('open');
+        scrollTo(0,0);
+        document.title=(h=='home'?'':h.charAt(0).toUpperCase()+h.slice(1)+' | ')+'Nile Century Hospital'
+      }
+      addEventListener('hashchange',route);
+      $('mb').onclick=function(){
+        $('nv').classList.toggle('open')
+      }
+      ;
+      route();
+    </script><script>
+    (function(){
+    function g(i){return document.getElementById(i)}
+    function norm(t){return (t||'').toLowerCase()}
+    // Doctors: department filter
+    var dd=g('docDept'),docs=[].slice.call(document.querySelectorAll('#doctors .doc'));
+    function fd(){
+    var v=dd.value,n=0;
+    docs.forEach(function(c){var ok=!v||c.dataset.dept===v;c.style.display=ok?'':'none';if(ok)n++});
+    g('docNo').style.display=n?'none':'block';
+    g('docCt').textContent=tr('Showing {n} of {m} doctors',{n:n,m:docs.length});
+    }
+    dd.addEventListener('change',fd);fd();document.addEventListener('langchange',fd);
+    // Services and packages: text search
+    function hook(q,grid,no,ct,one,many){
+    var inp=g(q),cards=[].slice.call(g(grid).querySelectorAll('.cd'));
+    function f(){
+    var v=norm(inp.value).trim(),n=0;
+    cards.forEach(function(c){var ok=!v||norm(c.textContent).indexOf(v)>-1;c.style.display=ok?'':'none';if(ok)n++});
+    g(no).style.display=n?'none':'block';
+    g(ct).textContent=v?tr(n==1?one:many,{n:n}):'';
+    }
+    inp.addEventListener('input',f);document.addEventListener('langchange',f);
+    }
+    hook('svQ','svGr','svNo','svCt','{n} service found','{n} services found');
+    hook('pkQ','pkGr','pkNo','pkCt','{n} package found','{n} packages found');
+    })();
+  </script><script>
+  /* Fallback: if images/imN.jpg is missing, try other file endings */
+  (function(){
+  var ext=['jpg','jpeg','png','webp','JPG','PNG'];
+  var mob=window.matchMedia&&window.matchMedia('(max-width:700px)').matches;
+  document.querySelectorAll('[data-img]').forEach(function(el){
+  var hb=el.classList.contains('hbg'),m=el.classList.contains('hbm');
+  if(hb&&(mob?!m:m))return;
+  var names=m?[el.getAttribute('data-img'),'backho']:[el.getAttribute('data-img')],ni=0,name=names[0],i=0;
+  (function tryNext(){
+  if(i>=ext.length){if(++ni<names.length){name=names[ni];i=0;tryNext()}return}
+  var url='images/'+name+'.'+ext[i++],im=new Image();
+  im.onload=function(){var v='url("'+url+'")';if(el.classList.contains('im'))el.style.setProperty('--bg',v);else el.style.backgroundImage=v};
+  im.onerror=tryNext;
+  im.src=url;
+  })();
+  });
+  })();
+</script><script>
+(function(){
+  var t=document.getElementById('trk'),n=t.children.length,dots=document.getElementById('sDots'),cur=0,timer,VI=n-1;
+  var v=document.getElementById('sVid'),snd=document.getElementById('sSnd'),vBad=false;
+  v.muted=true;
+  v.addEventListener('error',function(){vBad=true},true);
+  function bad(){return vBad||v.networkState===3}
+  function sync(){
+    if(cur===VI&&!bad()){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+    else{v.pause()}
+  }
+  function sLbl(){snd.textContent=tr(v.muted?'🔇 Sound off':'🔊 Sound on')}
+  snd.onclick=function(){v.muted=!v.muted;sLbl()};
+  document.addEventListener('langchange',sLbl);sLbl();
+  v.addEventListener('ended',function(){v.currentTime=0;go(0)});
+  for(var i=0;i<n;i++){(function(i){var b=document.createElement('button');b.setAttribute('aria-label','Slide '+(i+1));b.onclick=function(){go(i)};dots.appendChild(b)})(i)}
+  function go(i){cur=(i+n)%n;t.scrollTo({left:cur*t.clientWidth,behavior:'smooth'})}
+  function mark(){
+    var i=Math.round(t.scrollLeft/t.clientWidth),old=cur;cur=i;
+    [].forEach.call(dots.children,function(b,k){b.classList.toggle('on',k==i)});
+    [].forEach.call(t.children,function(c,k){c.classList.toggle('act',k==i)});
+    document.getElementById('sCt').textContent=('0'+(i+1)).slice(-2)+' / '+('0'+n).slice(-2);
+    if(i!==old){if(i===VI)v.currentTime=0;sync()}
+  }
+  t.addEventListener('scroll',mark);mark();
+  document.getElementById('sPv').onclick=function(){go(cur-1)};
+  document.getElementById('sNx').onclick=function(){go(cur+1)};
+  function play(){stop();timer=setInterval(function(){
+    if(!t.offsetParent){v.pause();return}
+    if(cur===VI&&!bad()&&!v.ended){sync();return}  /* wait for the video to finish */
+    go(cur+1)
+  },4500)}
+  function stop(){clearInterval(timer)}
+  t.addEventListener('touchstart',stop,{passive:true});t.addEventListener('touchend',play);
+  play();
+})();
+</script><script>
+(function(){var b=document.getElementById('sub');function f(){b.textContent=tr(b.dataset.d?'Subscribed ✓':'Subscribe')}document.addEventListener('langchange',f);f()})();
+</script><script>
+/* ===== Load news posted from add_news.php ===== */
+(function(){
+  var box=document.getElementById('news-list');
+  if(!box) return;
+  fetch('get_news.php',{cache:'no-store'})
+    .then(function(r){return r.json();})
+    .then(function(items){
+      if(!items||!items.length) return;      // keep the default cards
+      box.innerHTML='';
+      items.forEach(function(n){
+        var card=document.createElement('div'); card.className='cd';
+        if(n.image){
+          var img=document.createElement('img');
+          img.src='uploads/'+encodeURIComponent(n.image);
+          img.alt=n.title;
+          img.style.cssText='width:100%;height:170px;object-fit:cover;border-radius:8px;margin-bottom:10px';
+          card.appendChild(img);
+        }
+        var h=document.createElement('h3'); h.textContent=n.title; card.appendChild(h);
+        var d=document.createElement('small'); d.textContent=n.date; d.style.opacity='.6'; card.appendChild(d);
+        var p=document.createElement('p'); p.textContent=n.content; p.style.whiteSpace='pre-line'; card.appendChild(p);
+        box.appendChild(card);
+      });
+    })
+    .catch(function(){});                    // if the server is unreachable, keep default cards
+})();
+</script>
+<script>
+/* ===== Hero background slideshow: backho, backho2, backho3 ===== */
+(function(){
+  var wrap=document.getElementById('heroBg');
+  if(!wrap)return;
+  var slides=[].slice.call(wrap.querySelectorAll('.hbg:not(.hbm)')),i=0;
+  if(slides.length<2)return;
+  if(window.matchMedia&&window.matchMedia('(max-width:700px)').matches)return;
+  setInterval(function(){
+    slides[i].classList.remove('on');
+    i=(i+1)%slides.length;
+    slides[i].classList.add('on');
+  },5000);
+})();
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb');if(!lb)return;
+  var tiles=[].slice.call(document.querySelectorAll('#alb .gal')),img=document.getElementById('lbImg'),
+      vid=document.getElementById('lbVid'),stage=lb.querySelector('.lb-stage'),vc=document.getElementById('lbVc'),vm=document.getElementById('lbVm'),
+      pl=document.getElementById('lbPl'),mu=document.getElementById('lbMu'),sk=document.getElementById('lbSk'),tm=document.getElementById('lbTm'),
+      ct=document.getElementById('lbCt'),th=document.getElementById('lbTh'),cur=0,last=null,seeking=false;
+  var I={play:'<svg viewBox="0 0 24 24" style="fill:#fff;stroke:none"><path d="M7 4.5v15l13-7.5z"/></svg>',
+         pause:'<svg viewBox="0 0 24 24" style="fill:#fff;stroke:none"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>',
+         vol:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z" style="fill:#fff"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>',
+         mute:'<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z" style="fill:#fff"/><path d="M17 9l5 6M22 9l-5 6"/></svg>'};
+  function isV(t){return t.hasAttribute('data-video')}
+  function src(t){var m=(t.style.backgroundImage||'').match(/url\(["']?(.*?)["']?\)/);return m?m[1]:''}
+  function fmt(x){if(!isFinite(x))x=0;var m=Math.floor(x/60),s=Math.floor(x%60);return m+':'+(s<10?'0':'')+s}
+  function ui(){pl.innerHTML=vid.paused?I.play:I.pause;pl.setAttribute('aria-label',vid.paused?'Play':'Pause');
+    mu.innerHTML=(vid.muted||vid.volume===0)?I.mute:I.vol;mu.setAttribute('aria-label',vid.muted?'Unmute':'Mute');
+    tm.textContent=fmt(vid.currentTime)+' / '+fmt(vid.duration);if(!seeking&&vid.duration)sk.value=vid.currentTime/vid.duration*1000}
+  ['play','pause','timeupdate','loadedmetadata','volumechange','ended'].forEach(function(e){vid.addEventListener(e,ui)});
+  vid.addEventListener('error',function(){vm.style.display='block'},true);
+  vid.addEventListener('loadeddata',function(){vm.style.display='none'});
+  pl.onclick=function(){vid.paused?vid.play().catch(function(){}):vid.pause()};
+  vid.onclick=pl.onclick;
+  mu.onclick=function(){vid.muted=!vid.muted};
+  sk.oninput=function(){seeking=true;if(vid.duration)vid.currentTime=sk.value/1000*vid.duration};
+  sk.onchange=function(){seeking=false};
+  function thumbs(){th.innerHTML='';tiles.forEach(function(t,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',isV(t)?'Video':'Photo '+(i+1));
+    if(isV(t)){b.className='tv';b.innerHTML='<svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg>'}else b.style.backgroundImage='url("'+src(t)+'")';
+    b.onclick=function(){go(i)};th.appendChild(b)})}
+  function show(i){
+    cur=(i+tiles.length)%tiles.length;var t=tiles[cur];
+    ct.textContent=(cur+1)+' / '+tiles.length;
+    [].forEach.call(th.children,function(b,k){b.classList.toggle('on',k===cur)});
+    vid.pause();vm.style.display='none';
+    if(isV(t)){stage.classList.add('isv');vc.classList.add('show');vid.currentTime=0;vid.load();ui();vid.play().catch(function(){})}
+    else{stage.classList.remove('isv');vc.classList.remove('show');img.src=src(t)}
+  }
+  function go(i){img.classList.add('sw');setTimeout(function(){show(i);img.classList.remove('sw')},120)}
+  function open(i){last=document.activeElement;thumbs();lb.classList.add('open');document.body.style.overflow='hidden';show(i);document.getElementById('lbX').focus()}
+  function close(){vid.pause();lb.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+  tiles.forEach(function(t,i){t.onclick=function(){open(i)}});
+  document.getElementById('lbX').onclick=close;
+  document.getElementById('lbP').onclick=function(){go(cur-1)};
+  document.getElementById('lbN').onclick=function(){go(cur+1)};
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target===stage)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();else if(e.key==='ArrowLeft')go(cur-1);else if(e.key==='ArrowRight')go(cur+1);
+    else if((e.key===' '||e.key==='k')&&stage.classList.contains('isv')&&e.target.tagName!=='BUTTON'){e.preventDefault();pl.onclick()}
+    else if(e.key==='m'&&stage.classList.contains('isv'))vid.muted=!vid.muted});
+  var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50&&e.target.type!=='range')go(cur+(d<0?1:-1));x0=null});
+  addEventListener('hashchange',close);
+  ui();
+})();
+</script>
+</body></html>
